@@ -1,0 +1,24 @@
+---
+let {title} = Astro.props
+import '../styles/global.css'
+import IconButton from "../components/IconButton"
+import Header from '../components/Header'
+
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+</head>
+<body>
+    <Header client:load />
+    <main>
+        <slot></slot>
+    </main>
+    <footer>
+        <p>Matt's Appliances, LLC</p>
+    </footer>
+</body>
+</html>

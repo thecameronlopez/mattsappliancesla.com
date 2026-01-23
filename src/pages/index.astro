@@ -1,17 +1,48 @@
 ---
+import '../styles/index.css'
+import TestData from "../data/tests.json"
+import ImageCarousel from "../components/ImageCarousel"
+import RootLayout from "../layout/RootLayout.astro"
+import SocialMediaBadges from "../components/SocialMediaBadges"
+import ValidationBadge from "../components/ValidationBadge"
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+
+<RootLayout title="Matt's Appliances">
+	<section id="hero">
+		<h1>SWLA&apos;s New & Used Appliance Superstore</h1>
+		<h3>Come and check out our new Scratch & Dent Inventory</h3>
+		<p>
+			We don&apos;t want anything to get in the way of the necessities. That&apos;s why we offer top tier leasing and financing options to get you the appliance you need, today!
+		</p>
+		<button>
+			Explore Payment Plans
+		</button>
+		<video autoplay muted loop playsinline class="hero-video">
+			<source src="/videos/hero-loop.mp4" type="video/mp4" />
+		</video>
+	</section>
+	<section id="who-are-we">
+		<div class="text-block">
+			<h2>Who are we?</h2>
+			<p>
+				We&apos;re a Christian owned business whose focus is on helping our community! For the last 12 years we&apos;ve been able to offer new & used appliances at affordable prices. We strive to ensure customer satisfaction with our products and services!
+			</p>
+		</div>
+		<ImageCarousel client:visible />
+	</section>
+	<section id="social-media">
+		<h2>Check us out on social media</h2>
+		<SocialMediaBadges client:load />
+	</section>
+	<section id="validation">
+		<ValidationBadge client:load title="Trusted & Reliable" icon={"/icon-badges/trusted_and_reliable.svg"} desc="Any machine purchased at Matt's is backed by a 30-day warranty! Ask us about our Extended Warrant Program as well for 100% satisfaction gauranteed." />
+		<ValidationBadge client:load title="Leasing Available" icon={"/icon-badges/money.svg"} desc="We offer leasing options to make your appliance purchase easy and affordable. Apply for Acima with only $50 down! or get financed through Tower Loan to take home your appliance today." />
+		<ValidationBadge client:load title="Trade Your Appliances" icon={"/icon-badges/appliances.svg"} desc="Whether used or broken, we buy/sell/trade refrigerators, freezers, stove tops, washers & dryers." />
+		<ValidationBadge client:load title="Experienced Team" icon={"/icon-badges/tools.svg"} desc="With technicians that are EPA certified with over 88 years of combined experience." />
+	</section>
+	<section id="brands">
+		<h2>We carry top brands that you know & trust</h2>
+	</section>
+</RootLayout>
