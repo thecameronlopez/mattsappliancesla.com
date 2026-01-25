@@ -41,6 +41,7 @@ section#hero::before {
 #hero button {
   position: relative; /* above overlay */
   z-index: 1;
+  color: unset;
 }
 
 #hero button {
@@ -132,4 +133,25 @@ section#validation {
 
 .validation-badge-svg {
   width: 100px;
+}
+
+#brands {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+#brands .brand-banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  place-items: center;
+  row-gap: 1rem;
+}
+
+.brand-banner img {
+  width: 50%;
 }
