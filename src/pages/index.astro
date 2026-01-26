@@ -6,6 +6,7 @@ import RootLayout from "../layout/RootLayout.astro"
 import SocialMediaBadges from "../components/SocialMediaBadges"
 import ValidationBadge from "../components/ValidationBadge"
 import BrandsBanner from '../components/BrandsBanner'
+import Gallery from '../components/Gallery'
 
 ---
 
@@ -17,9 +18,9 @@ import BrandsBanner from '../components/BrandsBanner'
 		<p>
 			We don&apos;t want anything to get in the way of the necessities. That&apos;s why we offer top tier leasing and financing options to get you the appliance you need, today!
 		</p>
-		<button>
+		<a class="learn-more" href="/payment-plans">
 			Explore Payment Plans
-		</button>
+		</a>
 		<video autoplay muted loop playsinline class="hero-video">
 			<source src="/videos/hero-loop.mp4" type="video/mp4" />
 		</video>
@@ -47,11 +48,38 @@ import BrandsBanner from '../components/BrandsBanner'
 		<h2>We carry top brands that you know & trust</h2>
 		<BrandsBanner />
 	</section>
+	<section id="image-banner">
+		<h2>Make Your Home, <span class="scripted">Home.</span></h2>
+	</section>
 	<section id="payment-plans">
 		<h2>Find A Plan That Fits</h2>
-		<div class="plan tower-loan">
-			
+		<div class="plan tower-loan lifted">
+			<h4>Tower Loan</h4>
+			<img src="/images/payment-plans/tower-loan-logo.png" alt="Tower Loan Logo">
+			<p>
+				Interest free for 12 months, instant approval, even covers taxes! When Matt's Appliances partnered with Tower Loan, we made it easy for you to have the appliance you need to make sure your home operates as smooth as possible. Tower Loan makes your remodeling project a breeze. With a simple and fast application process, it will only take a few minutes to get you back up and running, getting your life back on track in no time!
+			</p>
+			<a class="learn-more" href="/payment-plans/tower-loan">Learn More</a>
 		</div>
-		<div class="plan acima"></div>
+		<div class="plan acima lifted">
+			<h4>Acima</h4>
+			<img class="acima-flyer-generic" src="/images/payment-plans/acima-generic.jpg" alt="Acima Leasing flyer">
+			<p>
+				Lease it until you own it or purchase early at a discounted rate! Either way, it's yours to keep. The sooner you do so, the more you'll save. Of course, if you no longer want the appliance, you can return it in good condition at anytime without penalty. Our application is fast and easy to complete, and won't harm your credit. You could get approved for $300 or $5,000 of shopping power! Just by meeting the basic requirements.
+			</p>
+			<a class="learn-more" href="/payment-plans/acima">Learn More</a>
+		</div>
+	</section>
+	<section id="gallery">
+		<h2>We've Got What You Need</h2>
+		<Gallery />
+	</section>
+	<section id="lifetime">
+		<div>
+			<p>All appliances are eligible for our</p>
+			<h2>Life Time Extended Warranty</h2>
+			<p>Starting as low as $7.99/mo</p>
+		</div>
+		<a class="learn-more">Learn More</a>
 	</section>
 </RootLayout>

@@ -9,15 +9,17 @@ const Header = () => {
   const handleToggle = () => setIsOpen(!isOpen);
   return (
     <header>
-      <img
-        src="/images/matts-logo.png"
-        alt="Matt's Appliances Logo"
-        id="header-logo"
-      />
+      <a href="/">
+        <img
+          src="/images/matts-logo.png"
+          alt="Matt's Appliances Logo"
+          id="header-logo"
+        />
+      </a>
       <div className={clsx("navlinks", isOpen ? "open" : "")}>
         <a href="/">Home</a>
         <a href="/about">About Us</a>
-        <a href="/financing">Payment Options</a>
+        <a href="/payment-plans">Payment Plans</a>
         <a href="/locations">Locations</a>
       </div>
       <IconButton

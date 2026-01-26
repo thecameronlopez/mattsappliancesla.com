@@ -1,3 +1,11 @@
+/*
+///////////////////////
+//////////////////////
+HERO SECTION
+//////////////////////
+/////////////////////
+*/
+
 section#hero {
   display: flex;
   flex-direction: column;
@@ -44,24 +52,33 @@ section#hero::before {
   color: unset;
 }
 
-#hero button {
+#hero a {
   margin-top: 1rem;
   padding: 0.75rem 2rem;
-  font-size: 1rem;
+  font-size: 1.5rem;
   border: none;
   color: white;
   cursor: pointer;
   border-radius: 6px;
   transition: background-color 0.3s ease;
-  background-color: darkblue;
+  background-color: var(--primary-blue);
+  z-index: 1000;
 }
 
+/*
+///////////////////////
+//////////////////////
+ WHO ARE WE
+//////////////////////
+/////////////////////
+*/
 #who-are-we {
   padding: 4rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  background-color: var(--light-blue);
 }
 
 #who-are-we .text-block {
@@ -86,24 +103,46 @@ section#hero::before {
   border-radius: 8px;
 }
 
+/*
+///////////////////////
+//////////////////////
+SOCIAL MEDIA 
+//////////////////////
+/////////////////////
+*/
+
 section#social-media {
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: center;
   gap: 2rem;
+  padding: 2rem 0 4rem 0;
+  font-size: 0.8rem;
+  width: 100%;
+  background-color: var(--light-blue);
+  border-bottom: 1px solid var(--light-blue);
+  border-radius: 50% / 0 0 50px 50px;
 }
 
 .social-media-badges {
   width: 100%;
+  padding-inline: 1rem;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .social-media-badges svg {
   font-size: 2.4rem;
 }
 
+/*
+///////////////////////
+//////////////////////
+VALIDATION
+//////////////////////
+/////////////////////
+*/
 section#validation {
   width: 100%;
   padding: 5rem 1rem;
@@ -135,6 +174,13 @@ section#validation {
   width: 100px;
 }
 
+/*
+///////////////////////
+//////////////////////
+BRANDS
+//////////////////////
+/////////////////////
+*/
 #brands {
   display: flex;
   flex-direction: column;
@@ -142,6 +188,8 @@ section#validation {
   gap: 1rem;
   width: 100%;
   text-align: center;
+  background-color: var(--light-blue);
+  padding: 3rem 0;
 }
 
 #brands .brand-banner {
@@ -154,4 +202,125 @@ section#validation {
 
 .brand-banner img {
   width: 50%;
+}
+
+/*
+///////////////////////
+//////////////////////
+IMAGE BANNER
+//////////////////////
+/////////////////////
+*/
+#image-banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 16rem;
+  background-image: url("/images/backgrounds/kitchen.svg");
+  background-position: center center;
+  background-size: cover;
+}
+
+#image-banner h2 {
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+#image-banner h2 span {
+  font-size: 2rem;
+  color: var(--light-blue);
+  font-weight: bold;
+}
+
+/*
+///////////////////////
+//////////////////////
+PAYMENT PLANS
+//////////////////////
+/////////////////////
+*/
+#payment-plans {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  text-align: center;
+  padding: 3rem 0;
+}
+
+#payment-plans h2 {
+  font-size: 2rem;
+}
+
+#payment-plans div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  background-color: var(--light-blue);
+}
+
+#payment-plans div h4 {
+  font-size: 1.4rem;
+}
+
+#payment-plans img {
+  width: 100px;
+  border-radius: 8px;
+}
+
+/*
+///////////////////////
+//////////////////////
+GALLERY
+//////////////////////
+/////////////////////
+*/
+#gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#gallery .gallery-images img {
+  float: left;
+  width: 100%;
+  object-fit: cover;
+}
+
+/*
+///////////////////////
+//////////////////////
+LIFETIME
+//////////////////////
+/////////////////////
+*/
+#lifetime {
+  background-image: url("/images/backgrounds/store-front.svg");
+  background-size: cover;
+  background-position: center center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+
+  width: 100%;
+  min-height: 18rem;
+
+  color: var(--white);
+}
+
+#lifetime div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#lifetime div h2 {
+  color: var(--light-blue);
 }

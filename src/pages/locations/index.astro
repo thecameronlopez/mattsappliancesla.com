@@ -1,0 +1,17 @@
+---
+import "../../styles/locations.css"
+import RootLayout from "../../layout/RootLayout.astro";
+import LocationCard from "../../components/LocationCard";
+---
+
+<RootLayout title="Locations">
+    <section id="locations-hero">
+        <h1>Find a Matt's Appliances Location Near You</h1>
+        <p>Serving Southwest Louisiana since 2014</p>
+    </section>
+    <section id="location-cards">
+        <LocationCard name={"Lake Charles"} address={"2600 Common St. Lake Charles, LA, 70601"} phone_number={"337-388-4350"} link_address={"lake-charles"}/>
+        <LocationCard name={"Jennings"} address={"314 E. Shankland Ave. Jennings, LA, 70546"} phone_number={"337-388-4350"} link_address={"jennings"} />
+        <LocationCard name={"Lafayette"} address={"Coming Soon"} phone_number={"Coming Soon"} link_address={"lafayette"} />
+    </section>
+</RootLayout>

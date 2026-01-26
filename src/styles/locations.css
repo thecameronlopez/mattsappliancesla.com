@@ -1,0 +1,118 @@
+#locations-hero {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: var(--light-blue);
+  gap: 1rem;
+  padding-block: 1rem;
+}
+
+#locations-hero p {
+  font-weight: bold;
+  color: var(--dark-blue);
+}
+
+#location-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 0rem 5rem 0rem;
+}
+
+.location-card {
+  border: 1px solid var(--primary-blue);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
+
+.location-card a.dial-phone {
+  color: var(--primary-blue);
+  font-style: italic;
+}
+
+.location-card a.view-em {
+  color: var(--primary-blue);
+  font-weight: 800;
+}
+
+.location-card p:last-child {
+  margin-top: 1rem;
+}
+
+/*
+Location common styles
+*/
+.location-header {
+  width: 100%;
+  min-height: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: var(--primary-blue);
+}
+
+.location-header::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.63);
+}
+
+.location-header > * {
+  z-index: 1000;
+}
+.location-header > h1 {
+  color: var(--light-blue);
+}
+.location-header > p {
+  color: var(--white);
+}
+
+.location-header.lc-header {
+  background-image: url("/images/locations/store-front-2.JPG");
+  background-size: cover;
+  background-position: center center;
+}
+
+.location-header.jn-header {
+  background-image: url("/images/locations/jennings-store-front.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+.location-faqs {
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.location-directions {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.location-directions a.direction-button {
+  font-size: 1.5rem;
+  border: 1px solid var(--black);
+  color: var(--white);
+  background-color: var(--dark-blue);
+  padding: 10px 24px;
+  border-radius: 8px;
+
+  box-shadow: -1px 1px 6px #333;
+  margin-top: 1rem;
+}

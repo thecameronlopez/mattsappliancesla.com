@@ -1,0 +1,34 @@
+[
+  {
+    "src": "/images/gallery/gallery-1.png",
+    "alt": "gallery image 1"
+  },
+  {
+    "src": "/images/gallery/gallery-2.png",
+    "alt": "gallery image 2"
+  },
+  {
+    "src": "/images/gallery/gallery-3.png",
+    "alt": "gallery image 3"
+  },
+  {
+    "src": "/images/gallery/gallery-4.png",
+    "alt": "gallery image 4"
+  },
+  {
+    "src": "/images/gallery/gallery-5.png",
+    "alt": "gallery image 5"
+  },
+  {
+    "src": "/images/gallery/gallery-6.png",
+    "alt": "gallery image 6"
+  },
+  {
+    "src": "/images/gallery/gallery-7.png",
+    "alt": "gallery image 7"
+  },
+  {
+    "src": "/images/gallery/gallery-8.png",
+    "alt": "gallery image 8"
+  }
+]

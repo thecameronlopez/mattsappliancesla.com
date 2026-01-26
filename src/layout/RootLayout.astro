@@ -18,7 +18,40 @@ import Header from '../components/Header'
         <slot></slot>
     </main>
     <footer>
-        <p>Matt's Appliances, LLC</p>
+        <img class="footer-logo" src="/images/matts-logo.png" alt="Matt's Appliances, LLC Logo">
+        <p class="footer-title">Matt's Appliances, LLC</p>
+        <p>mattsusedappliances@gmail.com</p>
+        <div class="locations-footer">
+            <div class="location lake-charles">
+                <address class="address">
+                    <h4>Lake Charles</h4>
+                    <p>2600 Common St</p>
+                    <p>Lake Charles, LA, 70601</p>
+                    <p>(337) 244-7589</p>
+                </address>
+                <div class="hours">
+                    <h4>Hours</h4>
+                    <p>Mon-Thur: <span>8:30AM-6:00PM</span></p>
+                    <p>Fri: <span>10AM-6PM</span></p>
+                    <p>Sat: <span>10AM-5PM</span></p>
+                </div>
+            </div>
+            <div class="location jennings">
+                <address class="address">
+                    <h4>Jennings</h4>
+                    <p>314 E. Shankland Ave.</p>
+                    <p>Jennings, LA, 70546</p>
+                    <p>(337) 388-4350</p>
+                </address>
+                <div class="hours">
+                    <h4>Hours</h4>
+                    <p>Mon-Thur: <span>8:30AM-6:00PM</span></p>
+                    <p>Fri: <span>10AM-6PM</span></p>
+                    <p>Sat: <span>10AM-5PM</span></p>
+                </div>
+            </div>
+            <p class="scripted" style="font-size: 1.5rem;">We are closed on Sundays</p>
+        </div>
     </footer>
 </body>
 </html>
