@@ -25,19 +25,13 @@ jobs:
               run: npm run build
 
             - name: Copy Files To Server
-              uses: appleboy/scp-action@v0.1.4
-              with:
-                  host: ${{ secrets.DEPLOY_HOST }}
-                  username: ${{ secrets.DEPLOY_USER }}
-                  key: ${{ secrets.DEPLOY_KEY }}
-                  source: "dist/*"
-                  target: ${{ secrets.DEPLOY_PATH }}
+              env:
+                  DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+                  DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+                  DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+              run: |
+                  rsync -avz -e "ssh -i $DEPLOY_KEY -o StrictHostKeyChecking=no" --delete dist/ $DEPLOY_USER@$DEPLOY_HOST:/var/www/mattsappliancesla.com/
 
             - name: Reload NGINX
-              uses: appleboy/ssh-action@v0.1.4
-              with:
-                  host: ${{ secrets.DEPLOY_HOST }}
-                  username: ${{ secrets.DEPLOY_USER }}
-                  key: ${{ secrets.DEPLOY_KEY }}
-                  script: |
-                      sudo systemctl reload nginx
+              run: |
+                  ssh -i ${{ secrets.DEPLOY_KEY }} -o StrictHostKeyChecking=no ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "sudo systemctl reload nginx"
