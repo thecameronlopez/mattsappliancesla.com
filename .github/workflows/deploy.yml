@@ -35,14 +35,3 @@ jobs:
                   rsync -avz -e "ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no" --delete dist/ $DEPLOY_USER@$DEPLOY_HOST:/var/www/mattsappliancesla.com/
 
                   rm -f /tmp/deploy_key
-
-            - name: Reload NGINX
-              env:
-                  DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
-                  DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
-                  DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
-              run: |
-                  echo "$DEPLOY_KEY" > /tmp/deploy_key
-                  chmod 600 /tmp/deploy_key
-                  ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "sudo systemctl reload nginx"
-                  rm -f /tmp/deploy_key

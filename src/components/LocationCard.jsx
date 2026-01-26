@@ -4,7 +4,11 @@ const LocationCard = ({ name, address, phone_number, link_address }) => {
   return (
     <article className="location-card">
       <h3>{name}</h3>
-      {address !== "Coming Soon" && <address>{address}</address>}
+      {address !== "Coming Soon" ? (
+        <address>{address}</address>
+      ) : (
+        <p>Coming Soon!</p>
+      )}
       {phone_number !== "Coming Soon" && (
         <p>
           tel:{" "}
