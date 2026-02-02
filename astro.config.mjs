@@ -6,6 +6,7 @@ import partytown from "@astrojs/partytown";
 // https://astro.build/config
 export default defineConfig({
   site: "https://mattsappliancesla.com",
+  output: "static",
   integrations: [
     react(),
     partytown({
