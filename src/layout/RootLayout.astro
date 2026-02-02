@@ -3,7 +3,6 @@ let {title} = Astro.props
 import '../styles/global.css'
 import IconButton from "../components/IconButton"
 import Header from '../components/Header'
-
 ---
 
 <html lang="en">
@@ -14,6 +13,15 @@ import Header from '../components/Header'
     <link rel="shortcut icon" href="/images/matts-logo.png" type="image/png">
     <title>{title}</title>
 </head>
+<!-- Google tag (gtag.js) -->
+<script type="text/partytown" async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-65REEDCECB"></script>
+<script type="text/partytown" is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-65REEDCECB');
+</script>
 <body>
     <Header client:load />
     <main>
