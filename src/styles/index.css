@@ -181,27 +181,29 @@ BRANDS
 //////////////////////
 /////////////////////
 */
-#brands {
+section#brands {
+  width: 100%;
+  min-height: 10rem;
+  margin-bottom: 1rem;
+}
+
+.brand-banner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
   width: 100%;
+}
+.brand-banner h2 {
+  font-size: 1rem;
+  margin-bottom: 2rem;
   text-align: center;
-  background-color: var(--light-blue);
-  padding: 3rem 0;
 }
-
-#brands .brand-banner {
+.brand-trail {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  width: 100%;
-  place-items: center;
-  row-gap: 1rem;
-}
-
-.brand-banner img {
-  width: 50%;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
 }
 
 /*
@@ -216,10 +218,10 @@ IMAGE BANNER
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 16rem;
+  min-height: 18rem;
   background-image: url("/images/backgrounds/kitchen.svg");
   background-position: center center;
-  background-size: cover;
+  background-size: contain;
 }
 
 #image-banner h2 {
@@ -231,6 +233,20 @@ IMAGE BANNER
   font-size: 2rem;
   color: var(--light-blue);
   font-weight: bold;
+}
+
+@media screen and (min-width: 580px) {
+  #image-banner {
+    background-size: cover;
+    min-height: 30rem;
+  }
+  #image-banner h2 {
+    font-size: 3em;
+  }
+  #image-banner h2 span {
+    font-size: 4.5rem;
+    font-weight: 400;
+  }
 }
 
 /*
@@ -280,15 +296,21 @@ GALLERY
 /////////////////////
 */
 #gallery {
+  width: 100%;
+}
+
+.gallery-images {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
 }
-
-#gallery .gallery-images img {
-  float: left;
-  width: 100%;
-  object-fit: cover;
+.images-from-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.images-from-gallery img {
+  max-width: 100%;
 }
 
 /*

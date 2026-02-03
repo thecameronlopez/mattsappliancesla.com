@@ -1,14 +1,16 @@
 import React from "react";
+import BRANDS from "../data/brands.json";
 
 const BrandsBanner = () => {
+  const DUPLICATED = [...BRANDS, ...BRANDS];
   return (
     <div className="brand-banner">
-      <img src="/images/brand-logos/frigidaire.png" alt="Frigidaire Logo" />
-      <img src="/images/brand-logos/ge.png" alt="GE Logo" />
-      <img src="/images/brand-logos/lg.png" alt="LG Logo" />
-      <img src="/images/brand-logos/samsung.png" alt="Samsung Logo" />
-      <img src="/images/brand-logos/whirlpool.png" alt="Whirlpool Logo" />
-      <img src="/images/brand-logos/kenmore.png" alt="Kenmore Logo" />
+      <h2>We carry top brands that you know and trust</h2>
+      <div className="brand-trail">
+        {BRANDS.map((i, index) => (
+          <img src={i.src} alt={i.alt} key={index} />
+        ))}
+      </div>
     </div>
   );
 };

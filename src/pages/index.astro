@@ -45,8 +45,8 @@ import Gallery from '../components/Gallery'
 		<ValidationBadge client:load title="Experienced Team" icon={"/icon-badges/tools.svg"} desc="With technicians that are EPA certified with over 88 years of combined experience." />
 	</section>
 	<section id="brands">
-		<h2>We carry top brands that you know and trust</h2>
-		<BrandsBanner />
+		<!-- <h2>We carry top brands that you know and trust</h2> -->
+		<BrandsBanner client:load />
 	</section>
 	<section id="image-banner">
 		<h2>Make Your Home, <span class="scripted">Home.</span></h2>
@@ -71,7 +71,6 @@ import Gallery from '../components/Gallery'
 		</div>
 	</section>
 	<section id="gallery">
-		<h2>We've Got What You Need</h2>
 		<Gallery />
 	</section>
 	<section id="lifetime">
