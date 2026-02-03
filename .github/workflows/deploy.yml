@@ -25,5 +25,8 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v5
         with:
+          context: .
           push: true
-          tags: thecameronlopez/astro-mattsappliancesla:latest
+          tags: |
+            thecameronlopez/astro-mattsappliancesla:latest
+            thecameronlopez/astro-mattsappliancesla:${{ github.sha }}
