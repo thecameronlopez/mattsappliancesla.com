@@ -1,5 +1,5 @@
 ---
-let {title} = Astro.props
+let {title = "Matt's Appliances | Lake Charles, Jennings & Lafayette", description = "Matt's Appliances sells affordable new, used, and scratch-and-dent refrigerators, washers, dryers, and more in Lake Charles, Jennings, and Lafayette Louisiana."} = Astro.props
 import '../styles/global.css'
 import IconButton from "../components/IconButton"
 import Header from '../components/Header'
@@ -8,20 +8,62 @@ import Header from '../components/Header'
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content={description}>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/images/matts-logo.png" type="image/png">
     <link rel="shortcut icon" href="/images/matts-logo.png" type="image/png">
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mattsappliancesla.com" />
+    <meta property="og:image" content="/images/matts-logo.png" />
     <title>{title}</title>
+    <script type="text/partytown" async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-65REEDCECB"></script>
+    <script type="text/partytown" is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-65REEDCECB');
+    </script>
+    <script type="application/ld+json" is:inline>
+        {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Matt's Appliances",
+        "url": "https://mattsappliancesla.com",
+        "subOrganization": [
+            {
+            "@type": "ApplianceStore",
+            "name": "Matt's Appliances - Lake Charles",
+            "telephone": "+1-337-244-7589",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "2600 Common St",
+                "addressLocality": "Lake Charles",
+                "addressRegion": "LA",
+                "postalCode": "70601",
+                "addressCountry": "US"
+            }
+            },
+            {
+            "@type": "ApplianceStore",
+            "name": "Matt's Appliances - Jennings",
+            "telephone": "+1-337-388-4350",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "314 E Shankland Ave",
+                "addressLocality": "Jennings",
+                "addressRegion": "LA",
+                "postalCode": "70546",
+                "addressCountry": "US"
+            }
+            }
+        ]
+        }
+    </script>
 </head>
 <!-- Google tag (gtag.js) -->
-<script type="text/partytown" async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-65REEDCECB"></script>
-<script type="text/partytown" is:inline>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-65REEDCECB');
-</script>
 <body>
     <Header client:load />
     <main>
