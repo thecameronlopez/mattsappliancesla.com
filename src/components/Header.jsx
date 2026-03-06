@@ -1,6 +1,5 @@
 import { useState } from "react";
 import IconButton from "./IconButton";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
 import clsx from "clsx";
 
 const Header = () => {
@@ -16,17 +15,18 @@ const Header = () => {
           id="header-logo"
         />
       </a>
-      <div className={clsx("navlinks", isOpen ? "open" : "")}>
+      <nav id="primary-nav" className={clsx("navlinks", isOpen ? "open" : "")}>
         <a href="/">Home</a>
         <a href="/about">About Us</a>
         <a href="/payment-plans">Payment Plans</a>
         <a href="/locations">Locations</a>
-      </div>
+      </nav>
       <IconButton
-        client:load
         className="menu-button"
         iconName={"faBars"}
-        label=""
+        ariaLabel={isOpen ? "Close navigation menu" : "Open navigation menu"}
+        ariaExpanded={isOpen}
+        ariaControls="primary-nav"
         onClick={handleToggle}
       />
     </header>

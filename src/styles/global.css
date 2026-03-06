@@ -143,6 +143,8 @@ header {
   align-items: center;
   justify-content: space-between;
   position: relative;
+  isolation: isolate;
+  z-index: 50000;
   padding: var(--space-sm) var(--space-md);
 }
 
@@ -168,7 +170,7 @@ header {
   opacity: 0;
   pointer-events: none;
   transition: opacity 180ms ease, transform 180ms ease;
-  z-index: 10000;
+  z-index: 60000;
 }
 .navlinks.open {
   transform: translateY(0);
@@ -200,10 +202,19 @@ header {
   display: grid;
   place-items: center;
   border-radius: 999px;
+  position: relative;
+  z-index: 61000;
 }
 
 .menu-button:hover {
   background-color: rgba(53, 111, 182, 0.08);
+}
+
+.menu-button:focus-visible,
+.navlinks a:focus-visible,
+a.learn-more:focus-visible {
+  outline: 3px solid rgba(255, 179, 71, 0.95);
+  outline-offset: 2px;
 }
 
 main {
@@ -215,25 +226,23 @@ main {
   /* gap: 2rem; */
 }
 
-footer {
+footer.site-footer {
   width: 100%;
-  min-height: 6rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: var(--space-sm);
+  gap: 1.1rem;
   background: linear-gradient(145deg, var(--deep-navy) 0%, var(--dark-blue) 100%);
   color: #fefefe;
-  padding-block: var(--space-md) var(--space-xl);
-  padding-inline: var(--space-md);
+  padding: 1.4rem 1rem 2.3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 @media (max-width: 767px) {
   header {
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 50000;
     backdrop-filter: blur(8px);
     background: linear-gradient(
       180deg,
@@ -244,34 +253,125 @@ footer {
   }
 }
 
-footer img.footer-logo {
-  width: 6rem;
+footer .footer-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.95rem;
 }
-footer > p.footer-title {
-  font-size: 1.4rem;
+
+footer .footer-logo {
+  width: 4.5rem;
+  height: auto;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.14);
+  padding: 0.35rem;
+}
+
+footer .footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+footer .footer-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+footer .footer-email {
+  color: #d7f4ff;
+  font-size: 0.96rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 footer .locations-footer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+footer .footer-quicklinks {
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+footer .footer-quicklinks a {
+  display: inline-flex;
   align-items: center;
-  gap: 3rem;
-  width: 100%;
-  margin-top: 1rem;
+  justify-content: center;
+  padding: 0.35rem 0.72rem;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  color: #eef8ff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
 }
 
-footer .locations-footer .location {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+footer .location-card-footer {
   width: 100%;
-  padding-inline: 0;
-  gap: var(--space-md);
-}
-
-footer .locations-footer .location .hours p {
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(148, 186, 230, 0.08) 100%
+  );
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  padding: 0.85rem 0.95rem;
   display: flex;
   flex-direction: column;
+  gap: 0.45rem;
+}
+
+footer .location-card-footer h4 {
+  color: #ffffff;
+  margin-bottom: 0.2rem;
+}
+
+footer .location-card-footer .address p {
+  font-style: normal;
+  line-height: 1.35;
+  font-size: 0.93rem;
+}
+
+footer .location-card-footer .footer-phone {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-top: 0.15rem;
+  border-radius: 999px;
+  padding: 0.3rem 0.65rem;
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+footer .location-card-footer .hours {
+  margin-top: 0.2rem;
+}
+
+footer .location-card-footer .hours p {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  font-size: 0.88rem;
+}
+
+footer .location-card-footer .hours span {
+  color: #d9f1ff;
+}
+
+footer .footer-note {
+  color: #ffdca0;
+  font-size: 1.4rem;
+  margin-top: 0.25rem;
 }
 
 .page-not-found {
@@ -364,14 +464,20 @@ section.we-got-what-you-need::before {
     padding-inline: var(--space-lg);
   }
 
-  footer .locations-footer {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
+  footer.site-footer {
+    padding: 1.7rem 1.4rem 2.1rem;
   }
 
-  footer .locations-footer .location {
-    width: 48%;
+  footer .footer-top {
+    justify-content: flex-start;
+  }
+
+  footer .locations-footer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  footer .footer-quicklinks {
+    justify-content: flex-start;
   }
 }
 

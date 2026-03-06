@@ -8,10 +8,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 const SocialMediaBadges = () => {
-  const openLink = (url) => {
-    window.open(url, "_blank");
-  };
-
   const links = [
     {
       icon: faFacebook,

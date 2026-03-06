@@ -22,7 +22,7 @@ const organizationSchema = {
       "@id": "https://mattsappliancesla.com/#organization",
       name: "Matt's Appliances",
       url: "https://mattsappliancesla.com",
-      email: "mattsusedappliances@gmail.com",
+      email: "sales@mattsappliancesla.net",
       sameAs: [
         "https://www.facebook.com/mattsusedappliances",
         "https://www.instagram.com/mattsnewandusedappliances/",
@@ -36,7 +36,7 @@ const organizationSchema = {
       url: "https://mattsappliancesla.com/locations/lake-charles/",
       image: ogImageUrl,
       telephone: "+1-337-244-7589",
-      email: "mattsusedappliances@gmail.com",
+      email: "sales@mattsappliancesla.net",
       address: {
         "@type": "PostalAddress",
         streetAddress: "2600 Common St",
@@ -74,7 +74,7 @@ const organizationSchema = {
       url: "https://mattsappliancesla.com/locations/jennings/",
       image: ogImageUrl,
       telephone: "+1-337-388-4350",
-      email: "mattsusedappliances@gmail.com",
+      email: "sales@mattsappliancesla.net",
       address: {
         "@type": "PostalAddress",
         streetAddress: "314 E Shankland Ave",
@@ -144,41 +144,49 @@ const organizationSchema = {
     <main>
         <slot></slot>
     </main>
-    <footer>
-        <img class="footer-logo" src="/images/matts-logo.png" alt="Matt's Appliances, LLC Logo">
-        <p class="footer-title">Matt's Appliances, LLC</p>
-        <p>mattsusedappliances@gmail.com</p>
+    <footer class="site-footer">
+        <div class="footer-top">
+            <img class="footer-logo" src="/images/matts-logo.png" alt="Matt's Appliances, LLC Logo">
+            <div class="footer-brand">
+                <p class="footer-title">Matt's Appliances, LLC</p>
+                <a class="footer-email" href="mailto:sales@mattsappliancesla.net">sales@mattsappliancesla.net</a>
+            </div>
+        </div>
+        <nav class="footer-quicklinks" aria-label="Footer quick links">
+            <a href="/">Home</a>
+            <a href="/locations">Locations</a>
+            <a href="/payment-plans">Payment Plans</a>
+            <a href="/about">About</a>
+        </nav>
         <div class="locations-footer">
-            <div class="location lake-charles">
+            <section class="location-card-footer">
+                <h4>Lake Charles</h4>
                 <address class="address">
-                    <h4>Lake Charles</h4>
                     <p>2600 Common St</p>
                     <p>Lake Charles, LA, 70601</p>
-                    <p>(337) 244-7589</p>
                 </address>
+                <a class="footer-phone" href="tel:+13372447589">(337) 244-7589</a>
                 <div class="hours">
-                    <h4>Hours</h4>
                     <p>Mon-Thur: <span>8:30AM-6:00PM</span></p>
                     <p>Fri: <span>10AM-6PM</span></p>
                     <p>Sat: <span>10AM-5PM</span></p>
                 </div>
-            </div>
-            <div class="location jennings">
+            </section>
+            <section class="location-card-footer">
+                <h4>Jennings</h4>
                 <address class="address">
-                    <h4>Jennings</h4>
                     <p>314 E. Shankland Ave.</p>
                     <p>Jennings, LA, 70546</p>
-                    <p>(337) 388-4350</p>
                 </address>
+                <a class="footer-phone" href="tel:+13373884350">(337) 388-4350</a>
                 <div class="hours">
-                    <h4>Hours</h4>
                     <p>Mon-Thur: <span>8:30AM-6:00PM</span></p>
                     <p>Fri: <span>10AM-6PM</span></p>
                     <p>Sat: <span>10AM-5PM</span></p>
                 </div>
-            </div>
-            <p class="scripted" style="font-size: 1.5rem;">We are closed on Sundays</p>
+            </section>
         </div>
+        <p class="footer-note scripted">We are closed on Sundays</p>
     </footer>
 </body>
 </html>

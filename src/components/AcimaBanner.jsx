@@ -6,6 +6,7 @@ const AcimaBanner = () => {
       <a
         href="https://ams.acima.com/discover/new?location_guid=loca-877bfd5a-ad85-4e78-8b52-4cde906b04aa&utm_source=web-banner&utm_medium=merchant&utm_campaign=mktg-lp&utm_content=rven1300X600"
         target="_blank"
+        rel="noopener noreferrer"
       >
         <img
           alt="Matt's Appliances Acima Link"
