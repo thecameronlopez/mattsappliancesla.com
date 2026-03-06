@@ -1,8 +1,112 @@
 ---
-let {title = "Matt's Appliances | Lake Charles, Jennings & Lafayette", description = "Matt's Appliances sells affordable new, used, and scratch-and-dent refrigerators, washers, dryers, and more in Lake Charles, Jennings, and Lafayette Louisiana."} = Astro.props
+let {
+  title = "Matt's Appliances | Lake Charles, Jennings & Lafayette",
+  description =
+    "Matt's Appliances sells affordable new, used, and scratch-and-dent refrigerators, washers, dryers, and more in Lake Charles, Jennings, and Lafayette Louisiana.",
+  noindex = false,
+  ogType = "website",
+  ogImage = "/images/matts-logo.png",
+} = Astro.props;
 import '../styles/global.css'
-import IconButton from "../components/IconButton"
 import Header from '../components/Header'
+
+const site = Astro.site ?? new URL("https://mattsappliancesla.com");
+const canonicalUrl = new URL(Astro.url.pathname, site).toString();
+const ogImageUrl = new URL(ogImage, site).toString();
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mattsappliancesla.com/#organization",
+      name: "Matt's Appliances",
+      url: "https://mattsappliancesla.com",
+      email: "mattsusedappliances@gmail.com",
+      sameAs: [
+        "https://www.facebook.com/mattsusedappliances",
+        "https://www.instagram.com/mattsnewandusedappliances/",
+        "https://www.yelp.com/biz/matts-appliances-lake-charles-3?osq=Matt%E2%80%99s+Appliances",
+      ],
+    },
+    {
+      "@type": "ApplianceStore",
+      "@id": "https://mattsappliancesla.com/locations/lake-charles/#store",
+      name: "Matt's Appliances - Lake Charles",
+      url: "https://mattsappliancesla.com/locations/lake-charles/",
+      image: ogImageUrl,
+      telephone: "+1-337-244-7589",
+      email: "mattsusedappliances@gmail.com",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "2600 Common St",
+        addressLocality: "Lake Charles",
+        addressRegion: "LA",
+        postalCode: "70601",
+        addressCountry: "US",
+      },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          opens: "08:30",
+          closes: "18:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Friday",
+          opens: "10:00",
+          closes: "18:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Saturday",
+          opens: "10:00",
+          closes: "17:00",
+        },
+      ],
+      parentOrganization: { "@id": "https://mattsappliancesla.com/#organization" },
+    },
+    {
+      "@type": "ApplianceStore",
+      "@id": "https://mattsappliancesla.com/locations/jennings/#store",
+      name: "Matt's Appliances - Jennings",
+      url: "https://mattsappliancesla.com/locations/jennings/",
+      image: ogImageUrl,
+      telephone: "+1-337-388-4350",
+      email: "mattsusedappliances@gmail.com",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "314 E Shankland Ave",
+        addressLocality: "Jennings",
+        addressRegion: "LA",
+        postalCode: "70546",
+        addressCountry: "US",
+      },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          opens: "08:30",
+          closes: "18:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Friday",
+          opens: "10:00",
+          closes: "18:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Saturday",
+          opens: "10:00",
+          closes: "17:00",
+        },
+      ],
+      parentOrganization: { "@id": "https://mattsappliancesla.com/#organization" },
+    },
+  ],
+};
 ---
 
 <html lang="en">
@@ -10,13 +114,19 @@ import Header from '../components/Header'
     <meta charset="UTF-8">
     <meta name="description" content={description}>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
     <link rel="icon" href="/images/matts-logo.png" type="image/png">
     <link rel="shortcut icon" href="/images/matts-logo.png" type="image/png">
+    <link rel="canonical" href={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mattsappliancesla.com" />
-    <meta property="og:image" content="/images/matts-logo.png" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
     <title>{title}</title>
     <script type="text/partytown" async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-65REEDCECB"></script>
     <script type="text/partytown" is:inline>
@@ -26,42 +136,7 @@ import Header from '../components/Header'
     
       gtag('config', 'G-65REEDCECB');
     </script>
-    <script type="application/ld+json" is:inline>
-        {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Matt's Appliances",
-        "url": "https://mattsappliancesla.com",
-        "subOrganization": [
-            {
-            "@type": "ApplianceStore",
-            "name": "Matt's Appliances - Lake Charles",
-            "telephone": "+1-337-244-7589",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "2600 Common St",
-                "addressLocality": "Lake Charles",
-                "addressRegion": "LA",
-                "postalCode": "70601",
-                "addressCountry": "US"
-            }
-            },
-            {
-            "@type": "ApplianceStore",
-            "name": "Matt's Appliances - Jennings",
-            "telephone": "+1-337-388-4350",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "314 E Shankland Ave",
-                "addressLocality": "Jennings",
-                "addressRegion": "LA",
-                "postalCode": "70546",
-                "addressCountry": "US"
-            }
-            }
-        ]
-        }
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 </head>
 <!-- Google tag (gtag.js) -->
 <body>
