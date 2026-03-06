@@ -4,9 +4,9 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: var(--light-blue);
-  gap: 1rem;
-  padding-block: 1rem;
+  background: linear-gradient(170deg, #dce8fa 0%, #def4f6 100%);
+  gap: 0.8rem;
+  padding: 1.25rem 1rem 1.1rem;
 }
 
 #locations-hero p {
@@ -18,15 +18,49 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  padding: 3rem 0rem 5rem 0rem;
+  gap: 1rem;
+  width: 100%;
+  padding: 2rem 0.75rem 3.5rem;
 }
 
 .location-card {
-  border: 1px solid var(--primary-blue);
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
+  border: 1px solid rgba(53, 111, 182, 0.3);
+  border-radius: 14px;
+  padding: 1rem 1rem 1.15rem;
   width: 100%;
+  max-width: 38rem;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(236, 245, 255, 0.88) 100%
+  );
+  box-shadow: 0 10px 20px rgba(38, 54, 82, 0.1);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.location-card:active {
+  transform: translateY(1px);
+}
+
+.location-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(120deg, #ffd86b 0%, #ffb347 50%, #ff9b6b 100%);
+}
+
+.location-card h3 {
+  margin-bottom: 0.45rem;
+}
+
+.location-card address,
+.location-card > p {
+  margin-top: 0.35rem;
 }
 
 .location-card a.dial-phone {
@@ -40,7 +74,7 @@
 }
 
 .location-card p:last-child {
-  margin-top: 1rem;
+  margin-top: 0.9rem;
 }
 
 /*
@@ -48,7 +82,7 @@ Location common styles
 */
 .location-header {
   width: 100%;
-  min-height: 20rem;
+  min-height: clamp(16rem, 52vw, 22rem);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,7 +96,11 @@ Location common styles
   content: "";
   inset: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.63);
+  background: linear-gradient(
+    180deg,
+    rgba(8, 15, 30, 0.35) 0%,
+    rgba(16, 36, 66, 0.65) 100%
+  );
 }
 
 .location-header > * {
@@ -70,6 +108,7 @@ Location common styles
 }
 .location-header > h1 {
   color: var(--light-blue);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.34);
 }
 .location-header > p {
   color: var(--white);
@@ -88,31 +127,53 @@ Location common styles
 }
 
 .location-faqs {
-  padding: 2rem;
+  padding: 1.5rem 1.1rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  max-width: 65ch;
 }
 
 .location-directions {
-  padding: 1rem;
+  padding: 0.9rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
   margin-bottom: 3rem;
+  width: 100%;
+}
+
+.location-directions iframe {
+  border-radius: 14px;
+  box-shadow: 0 10px 26px rgba(38, 54, 82, 0.2);
 }
 
 .location-directions a.direction-button {
-  font-size: 1.5rem;
+  font-size: 1.15rem;
   border: 1px solid var(--black);
   color: var(--white);
-  background-color: var(--dark-blue);
-  padding: 10px 24px;
-  border-radius: 8px;
+  background: linear-gradient(120deg, #1f3f6b 0%, #2f6bb3 100%);
+  padding: 0.7rem 1.15rem;
+  border-radius: 12px;
 
-  box-shadow: -1px 1px 6px #333;
+  box-shadow: 0 10px 20px rgba(38, 54, 82, 0.2);
   margin-top: 1rem;
+}
+
+@media (min-width: 900px) {
+  #location-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+    padding-inline: 1.25rem;
+  }
+
+  .location-card:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(100%, 38rem);
+  }
 }
