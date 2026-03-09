@@ -140,15 +140,84 @@ section#hero::before {
 #who-are-we div.image-carousel {
   width: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  gap: 0.7rem;
 }
 
-#who-are-we div.image-carousel img {
+#who-are-we .carousel-frame {
   width: 100%;
-  height: clamp(220px, 54vw, 390px);
-  object-fit: cover;
-  object-position: center center;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #dce8fa 0%, #cfe0fa 100%);
   border-radius: 14px;
+  border: 1px solid rgba(53, 111, 182, 0.2);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 12px 26px rgba(38, 54, 82, 0.16);
+  touch-action: pan-y;
+}
+
+#who-are-we .carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  transition: opacity 650ms ease, transform 650ms ease;
+  opacity: 1;
+  transform: scale(1);
+}
+
+#who-are-we .carousel-image.is-fading {
+  opacity: 0.12;
+  transform: scale(1.02);
+}
+
+#who-are-we .carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  background: rgba(16, 34, 64, 0.45);
+  color: #ffffff;
+  font-size: 1.65rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+#who-are-we .carousel-control.prev {
+  left: 0.55rem;
+}
+
+#who-are-we .carousel-control.next {
+  right: 0.55rem;
+}
+
+#who-are-we .carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+#who-are-we .carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(53, 111, 182, 0.35);
+  cursor: pointer;
+  transition: transform 170ms ease, background-color 170ms ease;
+}
+
+#who-are-we .carousel-dot.is-active {
+  background: #356fb6;
+  transform: scale(1.25);
 }
 
 /*
@@ -179,12 +248,12 @@ section#social-media {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0.85rem;
+  gap: 1.2rem;
 }
 
 .social-media-badges a {
-  width: 48px;
-  height: 48px;
+  width: 58px;
+  height: 58px;
   border-radius: 999px;
   display: grid;
   place-items: center;
@@ -199,7 +268,7 @@ section#social-media {
 }
 
 .social-media-badges svg {
-  font-size: 1.35rem;
+  font-size: 1.7rem;
 }
 
 /*
@@ -284,13 +353,13 @@ section#brands {
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-content: center;
-  gap: 1.2rem;
-  padding-inline: 0.75rem;
+  gap: 1.7rem;
+  padding-inline: 1.2rem;
 }
 
 .brand-trail img {
   max-width: 100%;
-  max-height: 34px;
+  max-height: 46px;
   object-fit: contain;
 }
 
@@ -390,28 +459,46 @@ GALLERY
 /////////////////////
 */
 #gallery {
-  width: 100%;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
 }
 
 .gallery-images {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  padding-bottom: 1rem;
+  gap: 0;
+  padding-bottom: 0;
+  width: 100%;
+}
+
+.gallery-images h2 {
+  padding: 0 1rem 0.9rem;
 }
 .images-from-gallery {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.4rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
   width: 100%;
-  padding-inline: 0.5rem;
+  padding-inline: 0;
+}
+
+.gallery-tile {
+  opacity: 1;
+  transition: opacity 450ms ease;
+}
+
+.gallery-tile.is-fading {
+  opacity: 0.15;
 }
 .images-from-gallery img {
+  display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 0;
 }
 
 /*
@@ -476,7 +563,6 @@ LIFETIME
 @media (min-width: 900px) {
   #who-are-we,
   #payment-plans,
-  #gallery,
   #validation {
     max-width: 1120px;
   }
@@ -496,7 +582,4 @@ LIFETIME
     max-width: 500px;
   }
 
-  .images-from-gallery {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
