@@ -7,6 +7,45 @@ import ValidationBadge from "../components/ValidationBadge"
 import BrandsBanner from '../components/BrandsBanner'
 import Gallery from '../components/Gallery'
 
+const sanitizeEnv = (value) =>
+  String(value || "")
+    .replace(/^['"]+|['"]+$/g, "")
+    .trim();
+
+const cloudName = sanitizeEnv(import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME);
+const heroVideoId =
+  sanitizeEnv(import.meta.env.PUBLIC_CLOUDINARY_HERO_VIDEO_PUBLIC_ID) ||
+  "hero-loop";
+
+const encodedHeroVideoId = heroVideoId
+  .split("/")
+  .map((segment) => encodeURIComponent(segment))
+  .join("/");
+
+const heroVideoBase = cloudName
+  ? `https://res.cloudinary.com/${cloudName}/video/upload`
+  : "";
+
+const heroVideoMobileWebmSrc = heroVideoBase
+  ? `${heroVideoBase}/q_auto:eco,vc_auto,w_720,f_webm/${encodedHeroVideoId}.webm`
+  : "/videos/hero-loop.mp4";
+
+const heroVideoMobileMp4Src = heroVideoBase
+  ? `${heroVideoBase}/q_auto:eco,vc_auto,w_720,f_mp4/${encodedHeroVideoId}.mp4`
+  : "/videos/hero-loop.mp4";
+
+const heroVideoDesktopWebmSrc = heroVideoBase
+  ? `${heroVideoBase}/q_auto:good,vc_auto,w_1280,f_webm/${encodedHeroVideoId}.webm`
+  : "/videos/hero-loop.mp4";
+
+const heroVideoDesktopMp4Src = heroVideoBase
+  ? `${heroVideoBase}/q_auto:good,vc_auto,w_1280,f_mp4/${encodedHeroVideoId}.mp4`
+  : "/videos/hero-loop.mp4";
+
+const heroVideoPoster = heroVideoBase
+  ? `${heroVideoBase}/so_0,q_auto:eco,w_1280,f_jpg/${encodedHeroVideoId}.jpg`
+  : undefined;
+
 ---
 
 
@@ -23,8 +62,27 @@ import Gallery from '../components/Gallery'
 		<a class="learn-more" href="/payment-plans">
 			Explore Payment Plans
 		</a>
-		<video autoplay muted loop playsinline class="hero-video">
-			<source src="/videos/hero-loop.mp4" type="video/mp4" />
+		<video
+			autoplay
+			muted
+			loop
+			playsinline
+			preload="metadata"
+			class="hero-video"
+			poster={heroVideoPoster}
+		>
+			<source
+				src={heroVideoMobileWebmSrc}
+				type="video/webm"
+				media="(max-width: 767px)"
+			/>
+			<source
+				src={heroVideoMobileMp4Src}
+				type="video/mp4"
+				media="(max-width: 767px)"
+			/>
+			<source src={heroVideoDesktopWebmSrc} type="video/webm" />
+			<source src={heroVideoDesktopMp4Src} type="video/mp4" />
 		</video>
 	</section>
 	<section id="who-are-we">
