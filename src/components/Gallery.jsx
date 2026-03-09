@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import GalleryImages from "../data/gallery.json";
 
 const cloudName = import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME;
 const galleryTag = "gallery";
@@ -26,7 +25,7 @@ const buildAltFromPublicId = (publicId) => {
 };
 
 const Gallery = () => {
-  const [images, setImages] = useState(GalleryImages);
+  const [images, setImages] = useState([]);
   const [tiles, setTiles] = useState([]);
   const [fadingSlots, setFadingSlots] = useState(
     Array.from({ length: visibleTileCount }, () => false),
@@ -51,9 +50,7 @@ const Gallery = () => {
         if (cloudinaryImages.length > 0) {
           setImages(cloudinaryImages);
         }
-      } catch {
-        // Keep local JSON fallback if Cloudinary list is unavailable.
-      }
+      } catch {}
     };
 
     loadCloudinaryImages();

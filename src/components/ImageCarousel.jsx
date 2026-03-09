@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import Images from "../data/carousel.json";
 
 const cloudName = import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME;
 const carouselTag =
@@ -33,7 +32,7 @@ const buildAltFromPublicId = (publicId) => {
 };
 
 const ImageCarousel = () => {
-  const [images, setImages] = useState(Images);
+  const [images, setImages] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -61,9 +60,7 @@ const ImageCarousel = () => {
           setImages(cloudinaryImages);
           setCurrentImageIndex(0);
         }
-      } catch {
-        // Keep local JSON fallback if Cloudinary list is unavailable.
-      }
+      } catch {}
     };
 
     loadCloudinaryImages();
