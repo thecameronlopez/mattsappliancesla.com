@@ -29,6 +29,21 @@ const buildAltFromPublicId = (publicId) => {
   return fileName.replace(/[-_]+/g, " ").trim();
 };
 
+const sortByNewestFirst = (a, b) => {
+  const timeA = Date.parse(a.created_at || "") || 0;
+  const timeB = Date.parse(b.created_at || "") || 0;
+  if (timeA !== timeB) return timeB - timeA;
+
+  return String(a.public_id || "").localeCompare(
+    String(b.public_id || ""),
+    undefined,
+    {
+      numeric: true,
+      sensitivity: "base",
+    },
+  );
+};
+
 const Gallery = () => {
   const [images, setImages] = useState([]);
   const [tiles, setTiles] = useState([]);
@@ -47,10 +62,12 @@ const Gallery = () => {
         if (!response.ok) return;
 
         const data = await response.json();
-        const cloudinaryImages = (data.resources || []).map((resource) => ({
-          src: buildCloudinaryUrl(resource.public_id),
-          alt: buildAltFromPublicId(resource.public_id),
-        }));
+        const cloudinaryImages = (data.resources || [])
+          .sort(sortByNewestFirst)
+          .map((resource) => ({
+            src: buildCloudinaryUrl(resource.public_id),
+            alt: buildAltFromPublicId(resource.public_id),
+          }));
 
         if (cloudinaryImages.length > 0) {
           setImages(cloudinaryImages);
@@ -154,14 +171,18 @@ const Gallery = () => {
     <div className="gallery-images">
       <h2>We got what you need</h2>
       <div className="images-from-gallery">
-        {tiles.map((image, index) => (
-          <div
-            className={`gallery-tile${fadingSlots[index] ? " is-fading" : ""}`}
-            key={index}
-          >
-            <img src={image.src} alt={image.alt} />
-          </div>
-        ))}
+        {tiles.length
+          ? tiles.map((image, index) => (
+              <div
+                className={`gallery-tile${fadingSlots[index] ? " is-fading" : ""}`}
+                key={index}
+              >
+                <img src={image.src} alt={image.alt} />
+              </div>
+            ))
+          : Array.from({ length: visibleTileCount }, (_, index) => (
+              <div className="gallery-tile gallery-skeleton" key={index} aria-hidden="true" />
+            ))}
       </div>
     </div>
   );

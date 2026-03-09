@@ -37,6 +37,21 @@ const buildAltFromPublicId = (publicId) => {
   return fileName.replace(/[-_]+/g, " ").trim();
 };
 
+const sortByNewestFirst = (a, b) => {
+  const timeA = Date.parse(a.created_at || "") || 0;
+  const timeB = Date.parse(b.created_at || "") || 0;
+  if (timeA !== timeB) return timeB - timeA;
+
+  return String(a.public_id || "").localeCompare(
+    String(b.public_id || ""),
+    undefined,
+    {
+      numeric: true,
+      sensitivity: "base",
+    },
+  );
+};
+
 const ImageCarousel = () => {
   const [images, setImages] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -57,10 +72,12 @@ const ImageCarousel = () => {
         if (!response.ok) return;
 
         const data = await response.json();
-        const cloudinaryImages = (data.resources || []).map((resource) => ({
-          publicId: resource.public_id,
-          alt: buildAltFromPublicId(resource.public_id),
-        }));
+        const cloudinaryImages = (data.resources || [])
+          .sort(sortByNewestFirst)
+          .map((resource) => ({
+            publicId: resource.public_id,
+            alt: buildAltFromPublicId(resource.public_id),
+          }));
 
         if (cloudinaryImages.length > 0) {
           setImages(cloudinaryImages);
@@ -101,7 +118,13 @@ const ImageCarousel = () => {
     };
   }, []);
 
-  if (!images.length) return null;
+  if (!images.length) {
+    return (
+      <div className="image-carousel">
+        <div className="carousel-frame carousel-skeleton" aria-hidden="true" />
+      </div>
+    );
+  }
 
   const currentImage = images[currentImageIndex];
   const currentImageSrc = resolveImageSrc(currentImage);

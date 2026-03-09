@@ -158,6 +158,17 @@ section#hero::before {
   touch-action: pan-y;
 }
 
+#who-are-we .carousel-skeleton {
+  background: linear-gradient(
+    110deg,
+    rgba(210, 225, 246, 0.9) 8%,
+    rgba(233, 242, 255, 0.95) 28%,
+    rgba(210, 225, 246, 0.9) 48%
+  );
+  background-size: 220% 100%;
+  animation: skeleton-shimmer 1.35s linear infinite;
+}
+
 #who-are-we .carousel-image {
   width: 100%;
   height: 100%;
@@ -493,12 +504,31 @@ GALLERY
 .gallery-tile.is-fading {
   opacity: 0.15;
 }
+.gallery-skeleton {
+  background: linear-gradient(
+    110deg,
+    rgba(210, 225, 246, 0.9) 8%,
+    rgba(233, 242, 255, 0.95) 28%,
+    rgba(210, 225, 246, 0.9) 48%
+  );
+  background-size: 220% 100%;
+  animation: skeleton-shimmer 1.35s linear infinite;
+}
 .images-from-gallery img {
   display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 0;
+}
+
+@keyframes skeleton-shimmer {
+  from {
+    background-position: 220% 0;
+  }
+  to {
+    background-position: -20% 0;
+  }
 }
 
 /*
