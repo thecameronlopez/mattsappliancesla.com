@@ -150,6 +150,7 @@ header {
 
 #header-logo {
   width: clamp(5.2rem, 17vw, 7rem);
+  height: auto;
 }
 
 .navlinks {

@@ -330,6 +330,7 @@ section#validation {
 
 .validation-badge-svg {
   width: 86px;
+  height: auto;
 }
 
 /*
@@ -371,6 +372,7 @@ section#brands {
 .brand-trail img {
   max-width: 100%;
   max-height: 46px;
+  height: auto;
   object-fit: contain;
 }
 
@@ -459,6 +461,8 @@ PAYMENT PLANS
 
 #payment-plans img {
   width: 110px;
+  height: auto;
+  object-fit: contain;
   border-radius: 8px;
 }
 
