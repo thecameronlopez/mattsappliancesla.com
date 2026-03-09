@@ -19,6 +19,9 @@ section#hero {
   padding: 1.25rem 1rem;
   position: relative;
   color: #fefefe;
+  background:
+    radial-gradient(circle at top, rgba(123, 179, 234, 0.45), transparent 38%),
+    linear-gradient(150deg, #19335d 0%, #21497c 42%, #2d6a98 100%);
 }
 
 section#hero .hero-video {
@@ -47,8 +50,19 @@ section#hero::before {
   z-index: 0;
 }
 
+section#hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -10% -22% auto;
+  width: min(72vw, 24rem);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 216, 107, 0.2) 0%, rgba(255, 216, 107, 0) 72%);
+  z-index: 0;
+}
+
 #hero h1,
-#hero h3,
+#hero .hero-eyebrow,
 #hero p,
 #hero button {
   position: relative;
@@ -60,7 +74,7 @@ section#hero::before {
   max-width: 18ch;
 }
 
-#hero h3 {
+#hero .hero-eyebrow {
   font-size: clamp(1.05rem, 4.2vw, 1.35rem);
   padding: 0.35rem 0.7rem;
   border-radius: 999px;
@@ -71,6 +85,7 @@ section#hero::before {
   );
   color: #3b250d;
   font-weight: 600;
+  max-width: fit-content;
 }
 
 #hero p {
@@ -213,22 +228,37 @@ section#hero::before {
 #who-are-we .carousel-dots {
   display: flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.2rem;
 }
 
 #who-are-we .carousel-dot {
-  width: 8px;
-  height: 8px;
+  width: 24px;
+  height: 24px;
   border-radius: 999px;
   border: none;
-  background: rgba(53, 111, 182, 0.35);
+  background: transparent;
   cursor: pointer;
   transition: transform 170ms ease, background-color 170ms ease;
+  position: relative;
+}
+
+#who-are-we .carousel-dot::before {
+  content: "";
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 8px;
+  height: 8px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: rgba(53, 111, 182, 0.35);
 }
 
 #who-are-we .carousel-dot.is-active {
-  background: #356fb6;
   transform: scale(1.25);
+}
+
+#who-are-we .carousel-dot.is-active::before {
+  background: #356fb6;
 }
 
 /*
@@ -280,6 +310,9 @@ section#social-media {
 
 .social-media-badges svg {
   font-size: 1.7rem;
+  width: 1.7rem;
+  height: 1.7rem;
+  flex: 0 0 auto;
 }
 
 /*
@@ -296,6 +329,10 @@ section#validation {
   flex-direction: column;
   align-items: center;
   gap: 2.5rem;
+}
+
+section#validation > h2 {
+  text-align: center;
 }
 
 .validation-badge {
@@ -389,16 +426,43 @@ IMAGE BANNER
   justify-content: center;
   align-items: center;
   min-height: 18rem;
-  background-image: url("/images/backgrounds/kitchen.svg");
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
+  background:
+    linear-gradient(160deg, rgba(15, 39, 71, 0.9) 0%, rgba(32, 92, 132, 0.76) 100%),
+    linear-gradient(135deg, rgba(255, 216, 107, 0.16) 0%, rgba(255, 255, 255, 0) 45%);
+  position: relative;
+  overflow: hidden;
+}
+
+#image-banner::before,
+#image-banner::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(4px);
+}
+
+#image-banner::before {
+  width: min(48vw, 15rem);
+  aspect-ratio: 1;
+  left: -3rem;
+  bottom: -3rem;
+  background: rgba(184, 236, 227, 0.2);
+}
+
+#image-banner::after {
+  width: min(54vw, 18rem);
+  aspect-ratio: 1;
+  right: -4rem;
+  top: -4rem;
+  background: rgba(255, 216, 107, 0.18);
 }
 
 #image-banner h2 {
   color: var(--white);
   font-size: 1.5rem;
   font-weight: 400;
+  position: relative;
+  z-index: 1;
 }
 #image-banner h2 span {
   font-size: 2rem;
@@ -408,7 +472,6 @@ IMAGE BANNER
 
 @media screen and (min-width: 580px) {
   #image-banner {
-    background-size: cover;
     min-height: 30rem;
   }
   #image-banner h2 {
@@ -455,7 +518,7 @@ PAYMENT PLANS
   border: 1px solid rgba(74, 47, 20, 0.09);
 }
 
-#payment-plans div h4 {
+#payment-plans div h3 {
   font-size: 1.4rem;
 }
 

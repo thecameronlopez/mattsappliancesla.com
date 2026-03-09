@@ -13,22 +13,30 @@ const rotationMs = 4000;
 const fadeDurationMs = 650;
 const swipeThresholdPx = 40;
 
-const buildCloudinaryUrl = (publicId) => {
+const buildCloudinaryUrl = (publicId, width = 800) => {
   if (!cloudName || !publicId) return "";
   const encodedPublicId = publicId
     .split("/")
     .map((segment) => encodeURIComponent(segment))
     .join("/");
 
-  return `https://res.cloudinary.com/${cloudName}/image/upload/f_auto,q_auto,w_1600/${encodedPublicId}`;
+  return `https://res.cloudinary.com/${cloudName}/image/upload/f_auto,q_auto,w_${width}/${encodedPublicId}`;
 };
 
 const resolveImageSrc = (image) => {
   if (image.publicId) {
-    const cloudinaryUrl = buildCloudinaryUrl(image.publicId);
+    const cloudinaryUrl = buildCloudinaryUrl(image.publicId, 800);
     if (cloudinaryUrl) return cloudinaryUrl;
   }
   return image.src;
+};
+
+const resolveImageSrcSet = (image) => {
+  if (!image.publicId || !cloudName) return undefined;
+
+  return [480, 800, 1200]
+    .map((width) => `${buildCloudinaryUrl(image.publicId, width)} ${width}w`)
+    .join(", ");
 };
 
 const buildAltFromPublicId = (publicId) => {
@@ -128,6 +136,7 @@ const ImageCarousel = () => {
 
   const currentImage = images[currentImageIndex];
   const currentImageSrc = resolveImageSrc(currentImage);
+  const currentImageSrcSet = resolveImageSrcSet(currentImage);
 
   const goToIndex = (targetIndex) => {
     if (
@@ -200,6 +209,8 @@ const ImageCarousel = () => {
         <img
           className={`carousel-image${isFading ? " is-fading" : ""}`}
           src={currentImageSrc}
+          srcSet={currentImageSrcSet}
+          sizes="(max-width: 900px) 92vw, 560px"
           alt={currentImage.alt}
           loading="lazy"
           decoding="async"
