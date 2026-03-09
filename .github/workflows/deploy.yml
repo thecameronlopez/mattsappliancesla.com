@@ -30,6 +30,7 @@ jobs:
           build-args: |
             PUBLIC_CLOUDINARY_CLOUD_NAME=${{ secrets.PUBLIC_CLOUDINARY_CLOUD_NAME }}
             PUBLIC_CLOUDINARY_CAROUSEL_TAG=${{ secrets.PUBLIC_CLOUDINARY_CAROUSEL_TAG }}
+            PUBLIC_CLOUDINARY_HERO_VIDEO_PUBLIC_ID=${{ secrets.PUBLIC_CLOUDINARY_HERO_VIDEO_PUBLIC_ID }}
           tags: |
             thecameronlopez/astro-mattsappliancesla:latest
             thecameronlopez/astro-mattsappliancesla:${{ github.sha }}
