@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-const cloudName = import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME;
+const sanitizeEnv = (value) =>
+  String(value || "")
+    .replace(/^['"]+|['"]+$/g, "")
+    .trim();
+
+const cloudName = sanitizeEnv(import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME);
 const galleryTag = "gallery";
 const visibleTileCount = 8;
 const rotationMs = 3000;

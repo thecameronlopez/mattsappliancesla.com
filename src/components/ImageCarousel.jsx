@@ -1,8 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const cloudName = import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME;
+const sanitizeEnv = (value) =>
+  String(value || "")
+    .replace(/^['"]+|['"]+$/g, "")
+    .trim();
+
+const cloudName = sanitizeEnv(import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME);
 const carouselTag =
-  import.meta.env.PUBLIC_CLOUDINARY_CAROUSEL_TAG || "carousel_images";
+  sanitizeEnv(import.meta.env.PUBLIC_CLOUDINARY_CAROUSEL_TAG) ||
+  "carousel_images";
 const rotationMs = 4000;
 const fadeDurationMs = 650;
 const swipeThresholdPx = 40;
