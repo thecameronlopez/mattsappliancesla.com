@@ -13,6 +13,8 @@ const Header = () => {
           src="/images/matts-logo.png"
           alt="Matt's Appliances Logo"
           id="header-logo"
+          width="934"
+          height="766"
         />
       </a>
       <nav id="primary-nav" className={clsx("navlinks", isOpen ? "open" : "")}>

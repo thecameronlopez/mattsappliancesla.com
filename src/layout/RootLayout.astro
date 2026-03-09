@@ -128,15 +128,15 @@ const organizationSchema = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
     <title>{title}</title>
-    <script type="text/partytown" async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-65REEDCECB"></script>
-    <script type="text/partytown" is:inline>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-65REEDCECB"></script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
     
       gtag('config', 'G-65REEDCECB');
     </script>
-    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 </head>
 <!-- Google tag (gtag.js) -->
 <body>
@@ -146,7 +146,7 @@ const organizationSchema = {
     </main>
     <footer class="site-footer">
         <div class="footer-top">
-            <img class="footer-logo" src="/images/matts-logo.png" alt="Matt's Appliances, LLC Logo">
+            <img class="footer-logo" src="/images/matts-logo.png" alt="Matt's Appliances, LLC Logo" width="934" height="766" loading="lazy" decoding="async">
             <div class="footer-brand">
                 <p class="footer-title">Matt's Appliances, LLC</p>
                 <a class="footer-email" href="mailto:sales@mattsappliancesla.net">sales@mattsappliancesla.net</a>

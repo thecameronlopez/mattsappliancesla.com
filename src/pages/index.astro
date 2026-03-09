@@ -1,6 +1,5 @@
 ---
 import '../styles/index.css'
-import TestData from "../data/tests.json"
 import ImageCarousel from "../components/ImageCarousel"
 import RootLayout from "../layout/RootLayout.astro"
 import SocialMediaBadges from "../components/SocialMediaBadges"
@@ -39,17 +38,17 @@ import Gallery from '../components/Gallery'
 	</section>
 	<section id="social-media">
 		<h2>Check us out on social media</h2>
-		<SocialMediaBadges client:load />
+		<SocialMediaBadges />
 	</section>
 	<section id="validation">
-		<ValidationBadge client:load title="Trusted & Reliable" icon={"/icon-badges/trusted_and_reliable.svg"} desc="Any machine purchased at Matt's is backed by a 30-day warranty! Ask us about our Extended Warrant Program as well for 100% satisfaction gauranteed." />
-		<ValidationBadge client:load title="Leasing Available" icon={"/icon-badges/money.svg"} desc="We offer leasing options to make your appliance purchase easy and affordable. Apply for Acima with only $50 down! or get financed through Tower Loan to take home your appliance today." />
-		<ValidationBadge client:load title="Trade Your Appliances" icon={"/icon-badges/appliances.svg"} desc="Whether used or broken, we buy/sell/trade refrigerators, freezers, stove tops, washers & dryers." />
-		<ValidationBadge client:load title="Experienced Team" icon={"/icon-badges/tools.svg"} desc="With technicians that are EPA certified with over 88 years of combined experience." />
+		<ValidationBadge title="Trusted & Reliable" icon={"/icon-badges/trusted_and_reliable.svg"} desc="Any machine purchased at Matt's is backed by a 30-day warranty! Ask us about our Extended Warrant Program as well for 100% satisfaction gauranteed." />
+		<ValidationBadge title="Leasing Available" icon={"/icon-badges/money.svg"} desc="We offer leasing options to make your appliance purchase easy and affordable. Apply for Acima with only $50 down! or get financed through Tower Loan to take home your appliance today." />
+		<ValidationBadge title="Trade Your Appliances" icon={"/icon-badges/appliances.svg"} desc="Whether used or broken, we buy/sell/trade refrigerators, freezers, stove tops, washers & dryers." />
+		<ValidationBadge title="Experienced Team" icon={"/icon-badges/tools.svg"} desc="With technicians that are EPA certified with over 88 years of combined experience." />
 	</section>
 	<section id="brands">
 		<!-- <h2>We carry top brands that you know and trust</h2> -->
-		<BrandsBanner client:load />
+		<BrandsBanner />
 	</section>
 	<section id="image-banner">
 		<h2>Make Your Home, <span class="scripted">Home.</span></h2>
@@ -58,7 +57,7 @@ import Gallery from '../components/Gallery'
 		<h2>Find A Plan That Fits</h2>
 		<div class="plan tower-loan lifted">
 			<h4>Tower Loan</h4>
-			<img src="/images/payment-plans/tower-loan-logo.png" alt="Tower Loan Logo">
+			<img src="/images/payment-plans/tower-loan-logo.png" alt="Tower Loan Logo" width="225" height="225" loading="lazy" decoding="async">
 			<p>
 				Interest free for 12 months, instant approval, even covers taxes! When Matt's Appliances partnered with Tower Loan, we made it easy for you to have the appliance you need to make sure your home operates as smooth as possible. Tower Loan makes your remodeling project a breeze. With a simple and fast application process, it will only take a few minutes to get you back up and running, getting your life back on track in no time!
 			</p>
@@ -66,7 +65,7 @@ import Gallery from '../components/Gallery'
 		</div>
 		<div class="plan acima lifted">
 			<h4>Acima</h4>
-			<img class="acima-flyer-generic" src="/images/payment-plans/acima-generic.jpg" alt="Acima Leasing flyer">
+			<img class="acima-flyer-generic" src="/images/payment-plans/acima-generic.jpg" alt="Acima Leasing flyer" width="800" height="800" loading="lazy" decoding="async">
 			<p>
 				Lease it until you own it or purchase early at a discounted rate! Either way, it's yours to keep. The sooner you do so, the more you'll save. Of course, if you no longer want the appliance, you can return it in good condition at anytime without penalty. Our application is fast and easy to complete, and won't harm your credit. You could get approved for $300 or $5,000 of shopping power! Just by meeting the basic requirements.
 			</p>
