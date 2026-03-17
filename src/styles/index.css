@@ -57,7 +57,11 @@ section#hero::after {
   width: min(72vw, 24rem);
   aspect-ratio: 1;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(255, 216, 107, 0.2) 0%, rgba(255, 216, 107, 0) 72%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 216, 107, 0.2) 0%,
+    rgba(255, 216, 107, 0) 72%
+  );
   z-index: 0;
 }
 
@@ -71,7 +75,7 @@ section#hero::after {
 }
 
 #hero h1 {
-  max-width: 18ch;
+  max-width: 20ch;
 }
 
 #hero .hero-eyebrow {
@@ -100,7 +104,9 @@ section#hero::after {
   color: white;
   cursor: pointer;
   border-radius: 12px;
-  transition: transform 160ms ease, box-shadow 160ms ease;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
   background: linear-gradient(120deg, #2f6bb3 0%, #2a86bf 50%, #4aa6a8 100%);
   z-index: 1000;
   box-shadow: 0 12px 22px rgba(17, 49, 93, 0.28);
@@ -189,7 +195,9 @@ section#hero::after {
   height: 100%;
   object-fit: contain;
   object-position: center center;
-  transition: opacity 650ms ease, transform 650ms ease;
+  transition:
+    opacity 650ms ease,
+    transform 650ms ease;
   opacity: 1;
   transform: scale(1);
 }
@@ -238,7 +246,9 @@ section#hero::after {
   border: none;
   background: transparent;
   cursor: pointer;
-  transition: transform 170ms ease, background-color 170ms ease;
+  transition:
+    transform 170ms ease,
+    background-color 170ms ease;
   position: relative;
 }
 
@@ -301,7 +311,9 @@ section#social-media {
   background-color: rgba(255, 255, 255, 0.72);
   border: 1px solid rgba(53, 111, 182, 0.25);
   box-shadow: 0 8px 16px rgba(38, 54, 82, 0.12);
-  transition: transform 150ms ease, box-shadow 150ms ease;
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease;
 }
 
 .social-media-badges a:active {
@@ -427,8 +439,16 @@ IMAGE BANNER
   align-items: center;
   min-height: 18rem;
   background:
-    linear-gradient(160deg, rgba(15, 39, 71, 0.9) 0%, rgba(32, 92, 132, 0.76) 100%),
-    linear-gradient(135deg, rgba(255, 216, 107, 0.16) 0%, rgba(255, 255, 255, 0) 45%);
+    linear-gradient(
+      160deg,
+      rgba(15, 39, 71, 0.9) 0%,
+      rgba(32, 92, 132, 0.76) 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 216, 107, 0.16) 0%,
+      rgba(255, 255, 255, 0) 45%
+    );
   position: relative;
   overflow: hidden;
 }
@@ -678,5 +698,4 @@ LIFETIME
   #payment-plans .plan {
     max-width: 500px;
   }
-
 }
