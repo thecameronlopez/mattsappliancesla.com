@@ -250,6 +250,20 @@ footer.site-footer {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
+footer .footer-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+footer .footer-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
 @media (max-width: 767px) {
   header {
     position: sticky;
@@ -284,6 +298,11 @@ footer .footer-brand {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+}
+
+footer .footer-tagline {
+  color: #d9f1ff;
+  font-size: 0.95rem;
 }
 
 footer .footer-title {
@@ -336,10 +355,42 @@ footer .location-card-footer {
     rgba(148, 186, 230, 0.08) 100%
   );
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+footer .location-card-footer summary {
+  list-style: none;
+  cursor: pointer;
   padding: 0.85rem 0.95rem;
+}
+
+footer .location-card-footer summary::-webkit-details-marker {
+  display: none;
+}
+
+footer .location-summary {
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+footer .location-summary::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0.45rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-right: 2px solid #d9f1ff;
+  border-bottom: 2px solid #d9f1ff;
+  transform: rotate(45deg);
+  transition: transform 160ms ease;
+}
+
+footer .location-card-footer[open] .location-summary::after {
+  transform: rotate(-135deg);
 }
 
 footer .location-card-footer h3 {
@@ -363,6 +414,15 @@ footer .location-card-footer .footer-phone {
   color: #ffffff;
   font-weight: 600;
   font-size: 0.95rem;
+}
+
+footer .location-card-footer .location-details {
+  display: none;
+  padding: 0 0.95rem 0.95rem;
+}
+
+footer .location-card-footer[open] .location-details {
+  display: block;
 }
 
 footer .location-card-footer .hours {
@@ -466,7 +526,10 @@ section.we-got-what-you-need::before {
 
   .navlinks a {
     text-align: center;
-    font-size: 16px;
+    font-size: 1.02rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
     background-color: transparent;
     border: none;
     padding: 0;
@@ -474,10 +537,20 @@ section.we-got-what-you-need::before {
 
   header {
     padding-inline: var(--space-lg);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.94) 0%,
+      rgba(247, 251, 255, 0.9) 100%
+    );
+    border-bottom: 1px solid rgba(38, 54, 82, 0.08);
   }
 
   footer.site-footer {
     padding: 1.7rem 1.4rem 2.1rem;
+  }
+
+  footer .footer-info {
+    gap: 1.05rem;
   }
 
   footer .footer-top {
@@ -490,6 +563,79 @@ section.we-got-what-you-need::before {
 
   footer .footer-quicklinks {
     justify-content: flex-start;
+  }
+
+  footer .location-card-footer summary {
+    cursor: default;
+  }
+
+  footer .location-summary {
+    padding-right: 0;
+  }
+
+  footer .location-summary::after {
+    display: none;
+  }
+
+  footer .location-card-footer .location-details {
+    padding: 0 0.95rem 0.95rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  body {
+    max-width: 1440px;
+  }
+
+  header {
+    min-height: 6.25rem;
+    padding-inline: 3rem;
+  }
+
+  #header-logo {
+    width: 9.25rem;
+  }
+
+  .navlinks {
+    gap: 3rem;
+  }
+
+  .navlinks a {
+    font-size: 1.12rem;
+    font-weight: 800;
+    color: var(--dark-blue);
+  }
+
+  footer.site-footer {
+    padding: 2.4rem 2.5rem 2.8rem;
+    gap: 1.4rem;
+  }
+
+  footer .footer-main,
+  footer .footer-note {
+    max-width: 1240px;
+  }
+
+  footer .footer-main {
+    display: grid;
+    grid-template-columns: minmax(18rem, 22rem) minmax(0, 1fr);
+    align-items: start;
+    gap: 2rem;
+  }
+
+  footer .footer-top,
+  footer .footer-quicklinks,
+  footer .locations-footer {
+    max-width: none;
+  }
+
+  footer .locations-footer {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  footer .location-card-footer {
+    min-height: 100%;
   }
 }
 
@@ -511,4 +657,22 @@ section.we-got-what-you-need::before {
     opacity: 1;
     transform: translateY(0);
   }
+}
+header nav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding-bottom: 0.35rem;
+  transition: color 220ms ease, box-shadow 260ms ease, border-radius 260ms ease;
+}
+
+header nav a:hover,
+header nav a[aria-current="page"] {
+  box-shadow: inset 0 -0.24rem 0 rgba(233, 199, 104, 0.95);
+  border-bottom-left-radius: 0.45rem;
+  border-bottom-right-radius: 0.45rem;
+}
+
+header nav a[aria-current="page"] {
+  color: var(--gold);
 }

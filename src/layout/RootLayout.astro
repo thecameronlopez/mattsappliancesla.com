@@ -155,6 +155,21 @@ const organizationSchema = {
     
       gtag('config', 'G-65REEDCECB');
     </script>
+    <script is:inline>
+      const syncFooterLocationCards = () => {
+        const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+        document.querySelectorAll("details[data-footer-location]").forEach((card) => {
+          if (isDesktop) {
+            card.setAttribute("open", "");
+          } else {
+            card.removeAttribute("open");
+          }
+        });
+      };
+
+      window.addEventListener("DOMContentLoaded", syncFooterLocationCards, { once: true });
+      window.addEventListener("resize", syncFooterLocationCards);
+    </script>
     <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
     {pageSchema && (
       <script is:inline type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
@@ -167,62 +182,139 @@ const organizationSchema = {
         <slot></slot>
     </main>
     <footer class="site-footer">
-        <div class="footer-top">
-            <img class="footer-logo" src="/images/matts-logo.png" alt="Matt's Appliances, LLC Logo" width="934" height="766" loading="lazy" decoding="async">
-            <div class="footer-brand">
-                <p class="footer-title">Matt's Appliances, LLC</p>
-                <a class="footer-email" href="mailto:sales@mattsappliancesla.net">sales@mattsappliancesla.net</a>
+        <div class="footer-main">
+            <div class="footer-info">
+                <div class="footer-top">
+                    <img class="footer-logo" src="/images/matts-logo.png" alt="Matt's Appliances, LLC Logo" width="934" height="766" loading="lazy" decoding="async">
+                    <div class="footer-brand">
+                        <p class="footer-title">Matt's Appliances, LLC</p>
+                        <a class="footer-email" href="mailto:sales@mattsappliancesla.net">sales@mattsappliancesla.net</a>
+                        <p class="footer-tagline">Serving Southwest Louisiana since 2014</p>
+                    </div>
+                </div>
+                <nav class="footer-quicklinks" aria-label="Footer quick links">
+                    <a href="/">Home</a>
+                    <a href="/locations">Locations</a>
+                    <a href="/payment-plans">Payment Plans</a>
+                    <a href="/about">About</a>
+                </nav>
             </div>
-        </div>
-        <nav class="footer-quicklinks" aria-label="Footer quick links">
-            <a href="/">Home</a>
-            <a href="/locations">Locations</a>
-            <a href="/payment-plans">Payment Plans</a>
-            <a href="/about">About</a>
-        </nav>
-        <div class="locations-footer">
-            <h2 class="sr-only">Store locations</h2>
-            <section class="location-card-footer">
-                <h3>Lake Charles</h3>
-                <address class="address">
-                    <p>2600 Common St</p>
-                    <p>Lake Charles, LA, 70601</p>
-                </address>
-                <a class="footer-phone" href="tel:+13372447589">(337) 244-7589</a>
-                <div class="hours">
-                    <p>Mon-Thur: <span>8:30AM-6:00PM</span></p>
-                    <p>Fri: <span>10AM-6PM</span></p>
-                    <p>Sat: <span>10AM-5PM</span></p>
-                </div>
-            </section>
-            <section class="location-card-footer">
-                <h3>Jennings</h3>
-                <address class="address">
-                    <p>314 E. Shankland Ave.</p>
-                    <p>Jennings, LA, 70546</p>
-                </address>
-                <a class="footer-phone" href="tel:+13373884350">(337) 388-4350</a>
-                <div class="hours">
-                    <p>Mon-Thur: <span>8:30AM-6:00PM</span></p>
-                    <p>Fri: <span>10AM-6PM</span></p>
-                    <p>Sat: <span>10AM-5PM</span></p>
-                </div>
-            </section>
-            <section class="location-card-footer">
-                <h3>Lafayette</h3>
-                <address class="address">
-                    <p>1308 Moss St.</p>
-                    <p>Lafayette, LA, 70501</p>
-                </address>
-                <a class="footer-phone" href="tel:+13372747877">(337) 274-7877</a>
-                <div class="hours">
-                    <p>Mon-Thur: <span>TBD</span></p>
-                    <p>Fri: <span>TBD</span></p>
-                    <p>Sat: <span>TBD</span></p>
-                </div>
-            </section>
+            <div class="locations-footer">
+                <h2 class="sr-only">Store locations</h2>
+                <details class="location-card-footer" data-footer-location>
+                    <summary>
+                        <div class="location-summary">
+                            <h3>Lake Charles</h3>
+                            <address class="address">
+                                <p>2600 Common St</p>
+                                <p>Lake Charles, LA, 70601</p>
+                            </address>
+                            <a class="footer-phone" href="tel:+13372447589">(337) 244-7589</a>
+                        </div>
+                    </summary>
+                    <div class="location-details">
+                        <div class="hours">
+                            <p>Mon-Thur: <span>8:30AM-6:00PM</span></p>
+                            <p>Fri: <span>10AM-6PM</span></p>
+                            <p>Sat: <span>10AM-5PM</span></p>
+                        </div>
+                    </div>
+                </details>
+                <details class="location-card-footer" data-footer-location>
+                    <summary>
+                        <div class="location-summary">
+                            <h3>Jennings</h3>
+                            <address class="address">
+                                <p>314 E. Shankland Ave.</p>
+                                <p>Jennings, LA, 70546</p>
+                            </address>
+                            <a class="footer-phone" href="tel:+13373884350">(337) 388-4350</a>
+                        </div>
+                    </summary>
+                    <div class="location-details">
+                        <div class="hours">
+                            <p>Mon-Thur: <span>8:30AM-6:00PM</span></p>
+                            <p>Fri: <span>10AM-6PM</span></p>
+                            <p>Sat: <span>10AM-5PM</span></p>
+                        </div>
+                    </div>
+                </details>
+                <details class="location-card-footer" data-footer-location>
+                    <summary>
+                        <div class="location-summary">
+                            <h3>Lafayette</h3>
+                            <address class="address">
+                                <p>1308 Moss St.</p>
+                                <p>Lafayette, LA, 70501</p>
+                            </address>
+                            <a class="footer-phone" href="tel:+13372747877">(337) 274-7877</a>
+                        </div>
+                    </summary>
+                    <div class="location-details">
+                        <div class="hours">
+                            <p>Mon-Thur: <span>TBD</span></p>
+                            <p>Fri: <span>TBD</span></p>
+                            <p>Sat: <span>TBD</span></p>
+                        </div>
+                    </div>
+                </details>
+            </div>
         </div>
         <p class="footer-note scripted">We are closed on Sundays</p>
     </footer>
-</body>
+    <script is:inline>
+      (() => {
+        const details = document.querySelector(".location-details");
+        if (!details) return;
+
+        const faqSection = document.querySelector(".location-faqs");
+        if (faqSection) {
+          let content = faqSection.querySelector(".location-faqs__content");
+          if (!content) {
+            content = document.createElement("div");
+            content.className = "location-faqs__content";
+
+            const nodes = Array.from(faqSection.childNodes).filter(
+              (node) => node !== details
+            );
+
+            for (const node of nodes) {
+              content.appendChild(node);
+            }
+
+            faqSection.appendChild(content);
+          }
+
+          faqSection.appendChild(details);
+        }
+      })();
+    </script>
+    <script is:inline>
+      (() => {
+        const normalize = (value) => {
+          if (!value) return "/";
+          const url = new URL(value, window.location.origin);
+          const pathname = url.pathname.replace(/\/+$/, "");
+          return pathname || "/";
+        };
+
+        const currentPath = normalize(window.location.pathname);
+        const headerLinks = document.querySelectorAll("header nav a[href]");
+
+        headerLinks.forEach((link) => {
+          const linkPath = normalize(link.getAttribute("href"));
+          const isCurrent =
+            linkPath === "/"
+              ? currentPath === "/"
+              : currentPath === linkPath || currentPath.startsWith(`${linkPath}/`);
+
+          if (isCurrent) {
+            link.setAttribute("aria-current", "page");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      })();
+    </script>
+  </body>
 </html>

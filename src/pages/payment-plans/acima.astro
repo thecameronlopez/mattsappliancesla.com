@@ -9,12 +9,18 @@ import AcimaBanner from "../../components/AcimaBanner";
     description="Apply for Acima lease-to-own at Matt's Appliances with flexible payments and fast approvals for qualifying customers."
 >
     <section class="payment-plan-hero">
-        <h1>Acima <span>Lease-To-Own Program</span></h1>
-        <p>With an initial payment of only $50 you can go home with the appliance of your dreams!</p>
-        <p class="big bolded">No Credit Needed!</p>
+        <div class="payment-plan-hero__copy">
+            <p class="payment-plan-hero__eyebrow">Lease To Own</p>
+            <h1>Acima <span>Lease-To-Own Program</span></h1>
+            <p>With an initial payment of only $50 you can go home with the appliance of your dreams.</p>
+        </div>
+        <div class="payment-plan-hero__highlight">
+            <p class="big bolded">No Credit Needed!</p>
+        </div>
     </section>
     <section class="plan-faqs">
-        <div>
+        <div class="plan-faqs__content">
+            <p class="plan-faqs__eyebrow">How It Works</p>
             <h2>Here's What You Need to Know</h2>
             <ul>
                 <li>
@@ -52,9 +58,11 @@ import AcimaBanner from "../../components/AcimaBanner";
                     </small>
                 </li>
             </ul>
-            <p class="big bolded">Text code "83127" to 22426 to get approved in minutes!</p>
+            <p class="plan-faqs__cta big bolded">Text code "83127" to 22426 to get approved in minutes!</p>
         </div>
-        <AcimaBanner />
+        <div class="plan-faqs__aside">
+            <AcimaBanner />
+        </div>
     </section>
     <section class="we-got-what-you-need">
         <h2>We've Got What You Need</h2>

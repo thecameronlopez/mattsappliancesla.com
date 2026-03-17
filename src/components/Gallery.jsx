@@ -169,7 +169,13 @@ const Gallery = () => {
 
   return (
     <div className="gallery-images">
-      <h2>We got what you need</h2>
+      <div className="gallery-intro">
+        <p className="gallery-eyebrow">In stock now</p>
+        <h2>We got what you need</h2>
+        <p>
+          Browse a quick look at the kinds of appliances that regularly move through our showroom floor.
+        </p>
+      </div>
       <div className="images-from-gallery">
         {tiles.length
           ? tiles.map((image, index) => (

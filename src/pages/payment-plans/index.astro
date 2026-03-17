@@ -8,10 +8,22 @@ import RootLayout from "../../layout/RootLayout.astro"
     description="Compare payment options at Matt's Appliances, including Acima lease-to-own and Tower Loan financing for qualifying purchases."
 >
     <section id="payment-plans-home">
-        <h1>Select a payment plan below to see details</h1>
+        <div class="payment-plans-home__intro">
+            <p class="payment-plans-home__eyebrow">Payment Options</p>
+            <h1>Select a payment plan below to see details</h1>
+            <p class="payment-plans-home__copy">
+                Compare flexible options for financing or lease-to-own purchases and choose the plan that fits your timeline.
+            </p>
+        </div>
         <div class="pp-button-block">
-            <a href="/payment-plans/acima">Acima</a>
-            <a href="/payment-plans/tower-loan">Tower Loan</a>
+            <a href="/payment-plans/acima">
+                <span class="pp-button-block__label">Lease To Own</span>
+                <strong>Acima</strong>
+            </a>
+            <a href="/payment-plans/tower-loan">
+                <span class="pp-button-block__label">Financing</span>
+                <strong>Tower Loan</strong>
+            </a>
         </div>
     </section>
 </RootLayout>

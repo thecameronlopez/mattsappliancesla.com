@@ -13,20 +13,25 @@ const logoDimensions = {
 const BrandsBanner = () => {
   return (
     <div className="brand-banner">
+      <p className="brand-eyebrow">Trusted appliance names</p>
       <h2>We carry top brands that you know and trust</h2>
+      <p className="brand-intro">
+        Shop dependable refrigerators, washers, dryers, ranges, and more from brands families already know.
+      </p>
       <div className="brand-trail">
         {BRANDS.map((i, index) => {
           const dims = logoDimensions[i.src] || { width: 64, height: 32 };
           return (
-            <img
-              src={i.src}
-              alt={i.alt}
-              key={index}
-              width={dims.width}
-              height={dims.height}
-              loading="lazy"
-              decoding="async"
-            />
+            <div className="brand-tile" key={index}>
+              <img
+                src={i.src}
+                alt={i.alt}
+                width={dims.width}
+                height={dims.height}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
           );
         })}
       </div>

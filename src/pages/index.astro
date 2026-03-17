@@ -54,14 +54,31 @@ const heroVideoPoster = heroVideoBase
 	description="Shop new, used, and scratch-and-dent appliances in Lake Charles, Jennings & Lafayette Louisiana. Matt's Appliances offers affordable pricing, financing options, and experienced appliance service."
 >
 	<section id="hero">
-		<h1>New & Used Appliances in Lake Charles, Jennings & Lafayette, LA</h1>
-		<p class="hero-eyebrow">Scratch & Dent Refrigerators, Washers, Dryers, Ovens</p>
-		<p>
-			We don&apos;t want anything to get in the way of the necessities. That&apos;s why we offer top tier leasing and financing options to get you the appliance you need, today!
-		</p>
-		<a class="learn-more" href="/payment-plans">
-			Explore Payment Plans
-		</a>
+		<div class="hero-column hero-column-primary">
+			<h1>New & Used Appliances in Lake Charles, Jennings & Lafayette, LA</h1>
+			<p class="hero-eyebrow">Scratch & Dent Refrigerators, Washers, Dryers, Ovens</p>
+		</div>
+		<div class="hero-column hero-column-secondary">
+			<div class="hero-cta-card">
+				<p class="hero-kicker">Get what you need today</p>
+				<p class="hero-support">
+					We offer leasing and financing options that help you bring home the appliance you need without waiting.
+				</p>
+				<ul class="hero-benefits">
+					<li>Flexible payment options</li>
+					<li>Local pickup and delivery support</li>
+					<li>Three Louisiana locations</li>
+				</ul>
+				<div class="hero-actions">
+					<a class="learn-more" href="/payment-plans">
+						Explore Payment Plans
+					</a>
+					<a class="hero-secondary-link" href="/locations">
+						Find a Location
+					</a>
+				</div>
+			</div>
+		</div>
 		<video
 			autoplay
 			muted
@@ -102,7 +119,13 @@ const heroVideoPoster = heroVideoBase
 		<SocialMediaBadges />
 	</section>
 	<section id="validation">
-		<h2>Why Southwest Louisiana shops with us</h2>
+		<div class="validation-intro">
+			<p class="validation-eyebrow">Why Matt&apos;s stands out</p>
+			<h2>Why Southwest Louisiana shops with us</h2>
+			<p>
+				From dependable appliances to flexible payment options, we focus on making the essentials easier for local families.
+			</p>
+		</div>
 		<ValidationBadge title="Trusted & Reliable" icon={"/icon-badges/trusted_and_reliable.svg"} desc="Any machine purchased at Matt's is backed by a 30-day warranty! Ask us about our Extended Warrant Program as well for 100% satisfaction gauranteed." />
 		<ValidationBadge title="Leasing Available" icon={"/icon-badges/money.svg"} desc="We offer leasing options to make your appliance purchase easy and affordable. Apply for Acima with only $50 down! or get financed through Tower Loan to take home your appliance today." />
 		<ValidationBadge title="Trade Your Appliances" icon={"/icon-badges/appliances.svg"} desc="Whether used or broken, we buy/sell/trade refrigerators, freezers, stove tops, washers & dryers." />
@@ -116,7 +139,13 @@ const heroVideoPoster = heroVideoBase
 		<h2>Make Your Home, <span class="scripted">Home.</span></h2>
 	</section>
 	<section id="payment-plans">
-		<h2>Find A Plan That Fits</h2>
+		<div class="payment-plans-intro">
+			<p class="payment-eyebrow">Flexible ways to buy</p>
+			<h2>Find A Plan That Fits</h2>
+			<p>
+				Choose the payment option that fits your budget and timeline, whether you want lease-to-own flexibility or traditional financing.
+			</p>
+		</div>
 		<div class="plan tower-loan lifted">
 			<h3>Tower Loan</h3>
 			<img src="/images/payment-plans/tower-loan-logo.png" alt="Tower Loan Logo" width="225" height="225" loading="lazy" decoding="async">
@@ -138,10 +167,12 @@ const heroVideoPoster = heroVideoBase
 		<Gallery client:visible />
 	</section>
 	<section id="lifetime">
-		<div>
-			<p>All appliances are eligible for our</p>
+		<div class="lifetime-copy">
+			<p class="lifetime-eyebrow">Extra peace of mind</p>
 			<h2>Life Time Extended Warranty</h2>
-			<p>Starting as low as $7.99/mo</p>
+			<p class="lifetime-subcopy">
+				Protect your appliance with coverage options starting as low as $7.99/mo.
+			</p>
 		</div>
 		<a class="learn-more" href="/about">Learn more about Matt&apos;s Appliances</a>
 	</section>
