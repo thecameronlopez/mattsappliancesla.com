@@ -35,7 +35,9 @@
     rgba(236, 245, 255, 0.88) 100%
   );
   box-shadow: 0 10px 20px rgba(38, 54, 82, 0.1);
-  transition: transform 150ms ease, box-shadow 150ms ease;
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease;
   position: relative;
   overflow: hidden;
 }
@@ -122,6 +124,11 @@ Location common styles
 
 .location-header.jn-header {
   background-image: url("/images/locations/jennings-store-front.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+.location-header.lf-header {
+  background-image: url("/images/locations/lafayette-promo.png");
   background-size: cover;
   background-position: center center;
 }
