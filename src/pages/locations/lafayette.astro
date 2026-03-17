@@ -1,13 +1,33 @@
 ---
 import "../../styles/locations.css"
 import RootLayout from "../../layout/RootLayout.astro";
+
+const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ApplianceStore",
+    "@id": "https://mattsappliancesla.com/locations/lafayette/#primary-store",
+    name: "Matt's Appliances - Lafayette",
+    url: "https://mattsappliancesla.com/locations/lafayette/",
+    image: "https://mattsappliancesla.com/images/locations/lafayette-promo.png",
+    telephone: "+1-337-274-7877",
+    email: "sales@mattsappliancesla.net",
+    priceRange: "$$",
+    address: {
+        "@type": "PostalAddress",
+        streetAddress: "1308 Moss St",
+        addressLocality: "Lafayette",
+        addressRegion: "LA",
+        postalCode: "70501",
+        addressCountry: "US",
+    },
+};
 ---
 
 
 <RootLayout
-    title="Lafayette Appliance Store | Matt's Appliances (Coming Soon)"
-    description="Matt's Appliances is planning a future Lafayette, LA location. Stay tuned for updates on opening details and store information."
-    noindex={true}
+    title="Lafayette Appliance Store | Matt's Appliances"
+    description="Matt's Appliances is opening in Lafayette, LA in early Summer 2026. Visit 1308 Moss St. for affordable new, used, and scratch-and-dent appliances."
+    pageSchema={pageSchema}
 >
     <section class="location-header lf-header">
         <h1>Lafayette, LA</h1>

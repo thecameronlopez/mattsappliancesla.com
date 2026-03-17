@@ -6,6 +6,7 @@ let {
   noindex = false,
   ogType = "website",
   ogImage = "/images/matts-logo.png",
+  pageSchema = null,
 } = Astro.props;
 import '../styles/global.css'
 import Header from '../components/Header'
@@ -105,6 +106,24 @@ const organizationSchema = {
       ],
       parentOrganization: { "@id": "https://mattsappliancesla.com/#organization" },
     },
+    {
+      "@type": "ApplianceStore",
+      "@id": "https://mattsappliancesla.com/locations/lafayette/#store",
+      name: "Matt's Appliances - Lafayette",
+      url: "https://mattsappliancesla.com/locations/lafayette/",
+      image: ogImageUrl,
+      telephone: "+1-337-274-7877",
+      email: "sales@mattsappliancesla.net",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "1308 Moss St",
+        addressLocality: "Lafayette",
+        addressRegion: "LA",
+        postalCode: "70501",
+        addressCountry: "US",
+      },
+      parentOrganization: { "@id": "https://mattsappliancesla.com/#organization" },
+    },
   ],
 };
 ---
@@ -137,6 +156,9 @@ const organizationSchema = {
       gtag('config', 'G-65REEDCECB');
     </script>
     <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    {pageSchema && (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+    )}
 </head>
 <!-- Google tag (gtag.js) -->
 <body>
@@ -192,7 +214,7 @@ const organizationSchema = {
                     <p>1308 Moss St.</p>
                     <p>Lafayette, LA, 70501</p>
                 </address>
-                <a class="footer-phone" href="tel:+13373884350">(337) 274-7877</a>
+                <a class="footer-phone" href="tel:+13372747877">(337) 274-7877</a>
                 <div class="hours">
                     <p>Mon-Thur: <span>TBD</span></p>
                     <p>Fri: <span>TBD</span></p>

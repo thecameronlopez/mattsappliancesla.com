@@ -1,11 +1,52 @@
 ---
 import "../../styles/locations.css"
 import RootLayout from "../../layout/RootLayout.astro";
+
+const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ApplianceStore",
+    "@id": "https://mattsappliancesla.com/locations/lake-charles/#primary-store",
+    name: "Matt's Appliances - Lake Charles",
+    url: "https://mattsappliancesla.com/locations/lake-charles/",
+    image: "https://mattsappliancesla.com/images/locations/store-front-2.JPG",
+    telephone: "+1-337-244-7589",
+    email: "sales@mattsappliancesla.net",
+    priceRange: "$$",
+    address: {
+        "@type": "PostalAddress",
+        streetAddress: "2600 Common St",
+        addressLocality: "Lake Charles",
+        addressRegion: "LA",
+        postalCode: "70601",
+        addressCountry: "US",
+    },
+    openingHoursSpecification: [
+        {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
+            opens: "08:30",
+            closes: "18:00",
+        },
+        {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: "Friday",
+            opens: "10:00",
+            closes: "18:00",
+        },
+        {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: "Saturday",
+            opens: "10:00",
+            closes: "17:00",
+        },
+    ],
+};
 ---
 
 <RootLayout
     title="Lake Charles Appliance Store | Matt's Appliances"
     description="Visit Matt's Appliances in Lake Charles, LA for new, used, and scratch-and-dent refrigerators, washers, dryers, and more."
+    pageSchema={pageSchema}
 >
     <section class="location-header lc-header">
         <h1>Lake Charles, LA</h1>
