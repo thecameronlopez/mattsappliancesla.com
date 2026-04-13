@@ -6,6 +6,7 @@ import SocialMediaBadges from "../components/SocialMediaBadges"
 import ValidationBadge from "../components/ValidationBadge"
 import BrandsBanner from '../components/BrandsBanner'
 import Gallery from '../components/Gallery'
+import { isHiring, openHiringLocations } from "../data/hiring"
 
 const sanitizeEnv = (value: any) =>
   String(value || "")
@@ -59,6 +60,29 @@ const heroVideoPoster = heroVideoBase
 			<p class="hero-eyebrow">Scratch & Dent Refrigerators, Washers, Dryers, Ovens</p>
 		</div>
 		<div class="hero-column hero-column-secondary">
+			{
+				isHiring && (
+					<div class="hero-cta-card hero-hiring-card">
+						<div class="hiring-promo">
+							<p class="hiring-promo__eyebrow">We&apos;re Hiring</p>
+							<h2>Check out open positions</h2>
+							<p class="hiring-promo__copy">
+								Matt&apos;s Appliances is currently hiring in {openHiringLocations.map((location) => location.name).join(" and ")}.
+							</p>
+							<div class="hiring-promo__actions">
+								{openHiringLocations.map((location) => (
+									<a
+										class="hiring-promo__link"
+										href={location.pagePath}
+									>
+										{location.name} Jobs
+									</a>
+								))}
+							</div>
+						</div>
+					</div>
+				)
+			}
 			<div class="hero-cta-card">
 				<p class="hero-kicker">Get what you need today</p>
 				<p class="hero-support">

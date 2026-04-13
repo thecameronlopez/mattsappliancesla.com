@@ -230,6 +230,52 @@ Location common styles
   margin-top: 1rem;
 }
 
+.location-careers {
+  width: min(100%, var(--page-width));
+  margin: 0 auto 3rem;
+  padding: 0 0.9rem;
+}
+
+.location-careers__intro {
+  display: grid;
+  gap: 0.55rem;
+  justify-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.location-careers__intro h2,
+.location-careers__intro p {
+  margin: 0;
+}
+
+.location-careers__intro p:last-child {
+  max-width: 40ch;
+}
+
+.location-careers__frame {
+  width: 100%;
+  min-height: 1100px;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 10px 26px rgba(38, 54, 82, 0.2);
+  background: #fff;
+}
+
+.location-careers__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  min-height: 2.75rem;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  color: var(--white);
+  font-weight: 800;
+  background: linear-gradient(120deg, #2f6bb3 0%, #2a86bf 50%, #4aa6a8 100%);
+  box-shadow: 0 10px 20px rgba(38, 54, 82, 0.14);
+}
+
 @media (min-width: 900px) {
   #locations-hero {
     padding: 3rem 2rem 2.6rem;
