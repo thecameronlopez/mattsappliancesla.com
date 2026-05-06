@@ -1,21 +1,289 @@
 ---
-import "../styles/about.css"
+import "../styles/about.css";
 import RootLayout from "../layout/RootLayout.astro";
+
+const timeline = [
+  {
+    year: "2011",
+    title: "Founded in a Garage",
+    text: "Matt and Amber started Matt's Appliances as a small family-run operation built on faith, hard work, integrity, and serving people well.",
+    image:
+      "https://res.cloudinary.com/dy2fh4rz0/image/upload/v1777917672/1000027112_eyhec3.jpg",
+    imageAlt: "Early Matt's Appliances garage beginnings",
+  },
+  {
+    year: "2014",
+    title: "First Facility",
+    text: "They rented a 600-square-foot facility at 2600 Common Street in Lake Charles, creating the foundation for the company's growth.",
+    image:
+      "https://res.cloudinary.com/dy2fh4rz0/image/upload/v1777917672/1000027108_cpvgpu.jpg",
+    imageAlt: "Matt's Appliances first Lake Charles facility",
+  },
+  {
+    year: "2019",
+    title: "Purchased the Building",
+    text: "The business purchased the full 5,000-square-foot building it had once rented only a small portion of.",
+    image:
+      "https://res.cloudinary.com/dy2fh4rz0/image/upload/v1777917670/1000027034_qnha9u.jpg",
+    imageAlt: "Matt's Appliances purchased Lake Charles building",
+  },
+  {
+    year: "2023",
+    title: "Jennings Location Opens",
+    text: "The second location brought the same faith-driven values, customer service, and family-business mindset to another Louisiana community.",
+    image:
+      "https://res.cloudinary.com/dy2fh4rz0/image/upload/v1777917939/1000027016_xo1psi.jpg",
+    imageAlt: "Matt's Appliances Jennings location",
+  },
+  {
+    year: "2024",
+    title: "Service Shop Expansion",
+    text: "The Lake Charles location added a 4,000-square-foot service and repair shop to better inspect, repair, and stand behind the appliances sold.",
+    image:
+      "https://res.cloudinary.com/dy2fh4rz0/image/upload/v1777917674/1000027139_ckxqpy.jpg",
+    imageAlt: "Matt's Appliances expanded service and repair shop",
+  },
+  {
+    year: "2026",
+    title: "Lafayette Location",
+    text: "Matt's Appliances continues to grow with its third location in Lafayette scheduled to open in late June 2026.",
+    image: "/images/locations/lafayette-promo.png",
+    imageAlt: "Matt's Appliances Lafayette location announcement",
+  },
+];
 ---
 
 <RootLayout
-    title="About Matt's Appliances | Serving Southwest Louisiana Since 2014"
-    description="Learn about Matt's Appliances, a family-focused appliance business serving Lake Charles, Jennings, and Lafayette with affordable new and used appliances."
+  title="About Matt's Appliances | Built on Faith, Family, and Service"
+  description="Learn the story of Matt's Appliances, founded by Matt and Amber in 2011 and grown into a faith-driven, family-run appliance business serving Louisiana."
 >
-    <section id="about-hero">
-        <h1>About Matt's Appliances</h1>
+  <section class="about-hero" aria-labelledby="about-title">
+    <div class="about-hero__content">
+      <p class="about-eyebrow">Our Story</p>
+      <h1 id="about-title">Built on Faith, Family, and Service</h1>
+      <p>
+        Matt's Appliances was founded in 2011 by Matt and his wife, Amber,
+        with humble beginnings in their garage. What started as a small,
+        family-run operation has grown into a multi-location business built on
+        faith, hard work, integrity, and a commitment to serving people well.
+      </p>
+    </div>
+    <figure class="about-photo about-photo--hero">
+      <img
+        src="https://res.cloudinary.com/dy2fh4rz0/image/upload/v1777917675/1000027141_s6b1ye.jpg"
+        alt="Matt's Appliances Lake Charles storefront"
+        width="960"
+        height="720"
+        loading="eager"
+        decoding="async"
+      />
+    </figure>
+  </section>
+
+  <section class="about-story about-section" aria-labelledby="beginnings-title">
+    <div class="about-copy">
+      <p class="about-eyebrow">Humble Beginnings</p>
+      <h2 id="beginnings-title">More Than Selling Appliances</h2>
+      <p>
+        From the beginning, Matt and Amber have believed that the business is
+        about more than just selling appliances. Their mission has always been
+        rooted in Christian values: treating customers with honesty, serving
+        the community with humility, and creating an environment where people
+        can grow both personally and professionally.
+      </p>
+      <img
+        class="about-inline-image"
+        src="https://res.cloudinary.com/dy2fh4rz0/image/upload/v1777917672/1000027110_um5bgs.jpg"
+        alt="Matt's Appliances early business photo"
+        width="960"
+        height="720"
+        loading="lazy"
+        decoding="async"
+      />
+      <p>
+        In 2014, Matt and Amber took the next major step by renting a
+        600-square-foot facility at 2600 Common Street in Lake Charles,
+        Louisiana. That small space became the foundation for the company's
+        growth and helped establish Matt's Appliances as a trusted name in
+        Southwest Louisiana.
+      </p>
+    </div>
+    <figure class="about-photo about-photo--offset">
+      <img
+        src="https://res.cloudinary.com/dy2fh4rz0/image/upload/v1777918309/1000027152_wuzx24.jpg"
+        alt="Matt's Appliances Jennings storefront"
+        width="960"
+        height="720"
+        loading="lazy"
+        decoding="async"
+      />
+    </figure>
+  </section>
+
+  <section class="about-values about-section" aria-labelledby="values-title">
+    <div class="about-section-heading">
+      <p class="about-eyebrow">What Guides Us</p>
+      <h2 id="values-title">Faith-Driven Values, Practical Service</h2>
+      <p>
+        The company has grown, but the heart of the work has stayed the same:
+        honest business, humble service, and people who are being developed
+        while they serve local families.
+      </p>
+    </div>
+    <div class="about-value-grid">
+      <article>
+        <span>Faith</span>
+        <h3>Honoring God Through Business</h3>
         <p>
-            Matt&apos;s Appliances is a locally owned team serving Southwest Louisiana with dependable
-            new, used, and scratch-and-dent appliances at fair prices.
+          Matt's Appliances remains committed to honoring God through honest
+          work and steady care for people.
         </p>
+      </article>
+      <article>
+        <span>Integrity</span>
+        <h3>Serving Customers Honestly</h3>
         <p>
-            Since 2014, our focus has stayed the same: help families keep their homes running with
-            quality appliances, clear financing options, and service you can trust.
+          Customers are treated with honesty, consistency, and respect from the
+          first conversation through the final delivery.
         </p>
-    </section>
+      </article>
+      <article>
+        <span>Leadership</span>
+        <h3>Developing Strong People</h3>
+        <p>
+          The business exists to help people grow in responsibility,
+          discipline, service, and leadership.
+        </p>
+      </article>
+    </div>
+    <div class="about-values-gallery" aria-label="Matt's Appliances team and store photos">
+      <img
+        src="https://res.cloudinary.com/dy2fh4rz0/image/upload/v1777917935/1000027018_kntxif.jpg"
+        alt="Matt's Appliances team and store photo"
+        width="720"
+        height="540"
+        loading="lazy"
+        decoding="async"
+      />
+      <img
+        src="https://res.cloudinary.com/dy2fh4rz0/image/upload/v1777917674/1000027140_azme8m.jpg"
+        alt="Matt's Appliances team and store photo"
+        width="720"
+        height="540"
+        loading="lazy"
+        decoding="async"
+      />
+      <img
+        src="https://res.cloudinary.com/dy2fh4rz0/image/upload/v1777917671/1000027091_u4wkj6.jpg"
+        alt="Matt's Appliances team and store photo"
+        width="720"
+        height="540"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </section>
+
+  <section class="about-timeline about-section" aria-labelledby="timeline-title">
+    <div class="about-section-heading">
+      <p class="about-eyebrow">Our Growth</p>
+      <h2 id="timeline-title">From a Garage to Multiple Louisiana Locations</h2>
+    </div>
+    <div class="timeline">
+      {
+        timeline.map((item) => (
+          <article class="timeline-item">
+            <img
+              src={item.image}
+              alt={item.imageAlt}
+              width="720"
+              height="540"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="timeline-copy">
+              <p class="timeline-year">{item.year}</p>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="about-people about-section" aria-labelledby="people-title">
+    <div class="about-people-gallery" aria-label="Matt's Appliances people and leadership photos">
+      <img
+        src="https://res.cloudinary.com/dy2fh4rz0/image/upload/v1777917670/1000002270_ez1qrv.jpg"
+        alt="Matt's Appliances team photo"
+        width="720"
+        height="540"
+        loading="lazy"
+        decoding="async"
+      />
+      <img
+        src="https://res.cloudinary.com/dy2fh4rz0/image/upload/v1777917936/1000027026_o3hmjj.jpg"
+        alt="Matt's Appliances team photo"
+        width="720"
+        height="540"
+        loading="lazy"
+        decoding="async"
+      />
+      <img
+        src="https://res.cloudinary.com/dy2fh4rz0/image/upload/v1777918308/1000027150_gsfush.png"
+        alt="Matt's Appliances leadership and team photo"
+        width="720"
+        height="540"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+    <div class="about-copy about-copy--featured">
+      <p class="about-eyebrow">Building People</p>
+      <h2 id="people-title">Growth Is Measured in More Than Square Footage</h2>
+      <p>
+        Today, Matt's Appliances continues to grow with its third location in
+        Lafayette scheduled to open in late June 2026. But for Matt and Amber,
+        growth is not measured only in square footage, inventory, or new
+        locations.
+      </p>
+      <p>
+        The heart of the company is the transformation and development of
+        people, especially helping men grow into responsible, disciplined,
+        faith-filled leaders at work, at home, and in the community.
+      </p>
+    </div>
+  </section>
+
+  <section class="about-closing" aria-labelledby="closing-title">
+    <p class="about-eyebrow">More Than Appliances</p>
+    <h2 id="closing-title">A Story of Faith, Perseverance, Leadership, and Service</h2>
+    <p>
+      From a garage in 2011 to multiple locations across Louisiana, Matt and
+      Amber's story is one of faith, perseverance, leadership, and service.
+      Matt's Appliances remains committed to honoring God through honest
+      business, developing strong leaders, and serving local families with
+      excellence.
+    </p>
+    <p>
+      More than appliances, Matt's Appliances is about building people:
+      developing men into leaders who carry responsibility, serve others well,
+      and make a lasting impact in their families, workplaces, and
+      communities. Check out this video from September 19th, 2025. This is the
+      ministry of Matt's Appliances in action.
+    </p>
+    <video
+      class="about-closing-video"
+      src="https://res.cloudinary.com/dy2fh4rz0/video/upload/v1778080176/baptism-reel_vyerje.mp4"
+      controls
+      preload="metadata"
+    >
+      <a href="https://res.cloudinary.com/dy2fh4rz0/video/upload/v1778080176/baptism-reel_vyerje.mp4">
+        Watch the Matt's Appliances ministry video.
+      </a>
+    </video>
+  </section>
 </RootLayout>
